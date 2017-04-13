@@ -1,0 +1,14 @@
+C:\Users\Elliot\Desktop\TestGUIApp\TestGUIApp\TestGUIApp\bin\Debug\TestGUIApp.exe.config
+C:\Users\Elliot\Desktop\TestGUIApp\TestGUIApp\TestGUIApp\bin\Debug\TestGUIApp.exe
+C:\Users\Elliot\Desktop\TestGUIApp\TestGUIApp\TestGUIApp\bin\Debug\TestGUIApp.pdb
+C:\Users\Elliot\Desktop\TestGUIApp\TestGUIApp\TestGUIApp\obj\Debug\TestGUIApp.csprojResolveAssemblyReference.cache
+C:\Users\Elliot\Desktop\TestGUIApp\TestGUIApp\TestGUIApp\obj\Debug\MainWindow.g.cs
+C:\Users\Elliot\Desktop\TestGUIApp\TestGUIApp\TestGUIApp\obj\Debug\App.g.cs
+C:\Users\Elliot\Desktop\TestGUIApp\TestGUIApp\TestGUIApp\obj\Debug\TestGUIApp_MarkupCompile.cache
+C:\Users\Elliot\Desktop\TestGUIApp\TestGUIApp\TestGUIApp\obj\Debug\TestGUIApp_MarkupCompile.lref
+C:\Users\Elliot\Desktop\TestGUIApp\TestGUIApp\TestGUIApp\obj\Debug\MainWindow.baml
+C:\Users\Elliot\Desktop\TestGUIApp\TestGUIApp\TestGUIApp\obj\Debug\TestGUIApp.g.resources
+C:\Users\Elliot\Desktop\TestGUIApp\TestGUIApp\TestGUIApp\obj\Debug\TestGUIApp.Properties.Resources.resources
+C:\Users\Elliot\Desktop\TestGUIApp\TestGUIApp\TestGUIApp\obj\Debug\TestGUIApp.csproj.GenerateResource.Cache
+C:\Users\Elliot\Desktop\TestGUIApp\TestGUIApp\TestGUIApp\obj\Debug\TestGUIApp.exe
+C:\Users\Elliot\Desktop\TestGUIApp\TestGUIApp\TestGUIApp\obj\Debug\TestGUIApp.pdb

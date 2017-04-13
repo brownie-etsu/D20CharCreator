@@ -1,0 +1,16 @@
+C:\Users\Elliot\Desktop\TestGUIApp\TestGUIApp\TestGUIApp\bin\Release\TestGUIApp.exe.config
+C:\Users\Elliot\Desktop\TestGUIApp\TestGUIApp\TestGUIApp\obj\Release\TestGUIApp.exe
+C:\Users\Elliot\Desktop\TestGUIApp\TestGUIApp\TestGUIApp\obj\Release\TestGUIApp.pdb
+C:\Users\Elliot\Desktop\TestGUIApp\D20CharCreator\D20CharCreator\bin\Release\D20CharCreator.exe.config
+C:\Users\Elliot\Desktop\TestGUIApp\D20CharCreator\D20CharCreator\bin\Release\D20CharCreator.exe
+C:\Users\Elliot\Desktop\TestGUIApp\D20CharCreator\D20CharCreator\bin\Release\D20CharCreator.pdb
+C:\Users\Elliot\Desktop\TestGUIApp\D20CharCreator\D20CharCreator\obj\Release\LoginWindow.g.cs
+C:\Users\Elliot\Desktop\TestGUIApp\D20CharCreator\D20CharCreator\obj\Release\App.g.cs
+C:\Users\Elliot\Desktop\TestGUIApp\D20CharCreator\D20CharCreator\obj\Release\D20CharCreator_MarkupCompile.cache
+C:\Users\Elliot\Desktop\TestGUIApp\D20CharCreator\D20CharCreator\obj\Release\D20CharCreator_MarkupCompile.lref
+C:\Users\Elliot\Desktop\TestGUIApp\D20CharCreator\D20CharCreator\obj\Release\LoginWindow.baml
+C:\Users\Elliot\Desktop\TestGUIApp\D20CharCreator\D20CharCreator\obj\Release\D20CharCreator.g.resources
+C:\Users\Elliot\Desktop\TestGUIApp\D20CharCreator\D20CharCreator\obj\Release\D20CharCreator.Properties.Resources.resources
+C:\Users\Elliot\Desktop\TestGUIApp\D20CharCreator\D20CharCreator\obj\Release\D20CharCreator.csproj.GenerateResource.Cache
+C:\Users\Elliot\Desktop\TestGUIApp\D20CharCreator\D20CharCreator\obj\Release\D20CharCreator.exe
+C:\Users\Elliot\Desktop\TestGUIApp\D20CharCreator\D20CharCreator\obj\Release\D20CharCreator.pdb
