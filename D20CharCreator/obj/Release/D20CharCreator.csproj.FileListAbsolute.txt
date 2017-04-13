@@ -14,3 +14,4 @@ C:\Users\Elliot\Desktop\TestGUIApp\D20CharCreator\D20CharCreator\obj\Release\D20
 C:\Users\Elliot\Desktop\TestGUIApp\D20CharCreator\D20CharCreator\obj\Release\D20CharCreator.csproj.GenerateResource.Cache
 C:\Users\Elliot\Desktop\TestGUIApp\D20CharCreator\D20CharCreator\obj\Release\D20CharCreator.exe
 C:\Users\Elliot\Desktop\TestGUIApp\D20CharCreator\D20CharCreator\obj\Release\D20CharCreator.pdb
+C:\Users\Elliot\Desktop\TestGUIApp\D20CharCreator\D20CharCreator\obj\Release\D20CharCreator.csprojResolveAssemblyReference.cache
