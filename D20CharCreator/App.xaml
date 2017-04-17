@@ -1,7 +1,7 @@
-﻿<Application x:Class="TestGUIApp.App"
+﻿<Application x:Class="D20CharCreator.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:TestGUIApp"
+             xmlns:local="clr-namespace:D20CharCreator"
              StartupUri="LoginWindow.xaml">
     <Application.Resources>
         

@@ -1,3 +1,4 @@
 C:\Users\Elliot\Desktop\TestGUIApp\D20CharCreator\D20CharCreator\bin\Debug\TestGUIApp.exe.config
 C:\Users\Elliot\Desktop\TestGUIApp\D20CharCreator\D20CharCreator\obj\Debug\TestGUIApp.exe
 C:\Users\Elliot\Desktop\TestGUIApp\D20CharCreator\D20CharCreator\obj\Debug\TestGUIApp.pdb
+C:\Users\Elliot\Desktop\D20CharCreator-master\D20CharCreator\bin\Debug\D20CharCreator.exe.config
