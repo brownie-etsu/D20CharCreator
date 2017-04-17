@@ -19,7 +19,7 @@
         </Grid.RowDefinitions>
         <TextBlock x:Name="CharacteristicsTextBlock" HorizontalAlignment="Left" Margin="130,156,0,0" TextWrapping="Wrap" Text="Characteristics" VerticalAlignment="Top" Width="120" FontFamily="Palatino Linotype" FontSize="16" TextAlignment="Center" Height="22" RenderTransformOrigin="0.706,-0.629" Grid.ColumnSpan="2"/>
         <TextBox x:Name="CharacteristicsTextBox" HorizontalAlignment="Center" Height="150" Margin="145,183,145,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="400" Grid.ColumnSpan="3" BorderBrush="{x:Null}" Background="#99FFFFFF" FontFamily="Palatino Linotype" FontSize="16" AcceptsReturn="True" AcceptsTab="True"/>
-        <Expander x:Name="CharacteristicsExpander" Header="Characteristics" VerticalAlignment="Top" Margin="0,36,0,0" RenderTransformOrigin="0.521,-0.762" FontFamily="Palatino Linotype" FontSize="16" HorizontalAlignment="Center" Width="150">
+        <Expander x:Name="CharacteristicsExpander" Header="Proficiencies" VerticalAlignment="Top" Margin="0,36,0,0" RenderTransformOrigin="0.521,-0.762" FontFamily="Palatino Linotype" FontSize="16" HorizontalAlignment="Center" Width="150">
             <StackPanel Margin="10,4,0,0">
                 <CheckBox x:Name="checkBox" Content="Insight"/>
                 <CheckBox x:Name="checkBox1" Content="Religion"/>

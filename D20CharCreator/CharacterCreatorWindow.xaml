@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:D20CharCreator"
         mc:Ignorable="d"
-        Title="CharacterCreatorWindow" Height="500" Width="700" WindowStartupLocation="CenterOwner" Closing="Window_Closing" BorderBrush="#FF720000" BorderThickness="3,0,3,3">
+        Title="Character Creator" Height="500" Width="700" WindowStartupLocation="CenterOwner" Closing="Window_Closing" BorderBrush="#FF720000" BorderThickness="3,0,3,3" ResizeMode="CanMinimize" Icon="Resources/d20.ico">
     <Window.Background>
         <ImageBrush ImageSource="Resources/parchment.jpg">
             <ImageBrush.RelativeTransform>
