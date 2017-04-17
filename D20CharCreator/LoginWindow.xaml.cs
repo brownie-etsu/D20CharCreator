@@ -30,19 +30,23 @@ namespace D20CharCreator
             CreateAccountWindow accountWindow = new CreateAccountWindow();
             accountWindow.Owner = this;
             accountWindow.Show();
-            this.Hide();
+            Hide();
         }
 
         private void LoginButton_Click(object sender, RoutedEventArgs e)
         {
-            this.Hide();
+            Hide();
 
             if (UsernameInputBox.Text == "username" && PasswordInputBox.Password == "password")
-                this.Close();
+            {
+                CharacterListWindow charListWindow = new CharacterListWindow();
+                charListWindow.Show();
+                Close();
+            }
             else
             {
                 MessageBox.Show("Invalid username/password.\nPlease try again.", "Login Failed", MessageBoxButton.OK, MessageBoxImage.Error);
-                this.Show();
+                Show();
             }
         }
     }
