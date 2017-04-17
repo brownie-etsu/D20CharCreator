@@ -13,21 +13,37 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace TestGUIApp
+namespace D20CharCreator
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for LoginWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class LoginWindow : Window
     {
-        public MainWindow()
+        public LoginWindow()
         {
             InitializeComponent();
         }
 
-        private void textBox_TextChanged(object sender, TextChangedEventArgs e)
+        private void CreateAccountButton_Click(object sender, RoutedEventArgs e)
         {
+            CreateAccountWindow accountWindow = new CreateAccountWindow();
+            accountWindow.Owner = this;
+            accountWindow.Show();
+            this.Hide();
+        }
 
+        private void LoginButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.Hide();
+
+            if (UsernameInputBox.Text == "username" && PasswordInputBox.Password == "password")
+                this.Close();
+            else
+            {
+                MessageBox.Show("Invalid username/password.\nPlease try again.", "Login Failed", MessageBoxButton.OK, MessageBoxImage.Error);
+                this.Show();
+            }
         }
     }
 }
