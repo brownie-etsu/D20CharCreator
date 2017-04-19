@@ -37,7 +37,7 @@ namespace D20CharCreator
         {
             Hide();
 
-            if (UsernameInputBox.Text == "username" && PasswordInputBox.Password == "password")
+            if (Database.LogIn(UsernameInputBox.Text, PasswordInputBox.Password))
             {
                 CharacterListWindow charListWindow = new CharacterListWindow();
                 charListWindow.Show();
