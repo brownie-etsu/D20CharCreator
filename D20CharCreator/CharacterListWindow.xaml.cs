@@ -38,6 +38,8 @@ namespace D20CharCreator
             stuff.Add(b);
 
             CharListTable.ItemsSource = stuff;
+
+            Database.GetCharacterList(17);
         }
 
         private void AddCharacterButton_Click(object sender, RoutedEventArgs e)

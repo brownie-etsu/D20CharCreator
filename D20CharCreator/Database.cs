@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
 using System.Security.Cryptography;
+using System.Data;
 
 namespace D20CharCreator
 {
@@ -53,6 +54,41 @@ namespace D20CharCreator
             cmd.Parameters.AddWithValue("@password", Hash(password));
 
             return cmd.ExecuteNonQuery() == 1;
+        }
+
+        public static Character[] GetCharacterList(int userId)
+        {
+            MySqlConnection conn = new MySqlConnection(connectionString);
+
+            conn.Open();
+
+            MySqlCommand cmd = new MySqlCommand("select count(*) from dnd_characters where user_id = @id", conn);
+
+            cmd.Parameters.AddWithValue("@id", userId);
+
+            Character[] characters = new Character[(long)cmd.ExecuteScalar()];
+
+            cmd = new MySqlCommand("select * from dnd_characters where user_id = @id", conn);
+
+            cmd.Parameters.AddWithValue("@id", userId);
+
+            MySqlDataReader reader = cmd.ExecuteReader();
+
+            for (int i = 0; i < characters.Length; i++)
+            {
+                reader.Read();
+                object[] charData = new object[7];
+                reader.GetValues(charData);
+
+                characters[i] = new Character();
+
+                characters[i].Statistic = (int)charData[2];
+                characters[i].Level = (int)charData[3];
+                characters[i].Name = (string)charData[4];
+                characters[i].Class = (ClassType)charData[5];
+            }
+
+            return characters;
         }
 
         /// <summary>

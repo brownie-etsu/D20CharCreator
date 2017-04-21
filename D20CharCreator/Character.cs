@@ -4,6 +4,12 @@
     {
         public string Name { get; set; }
 
-        public CharacterClass Class { get; set; }
+        public ClassType Class { get; set; }
+
+        public int Statistic { get; set; }
+
+        public int Level { get; set; }
+
+
     }
 }
