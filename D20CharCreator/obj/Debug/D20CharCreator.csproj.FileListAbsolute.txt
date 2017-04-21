@@ -52,3 +52,4 @@ C:\Users\Nick\Downloads\D20CharCreator-CharacterList\D20CharCreator\obj\Debug\Lo
 C:\Users\Nick\Downloads\D20CharCreator-CharacterList\D20CharCreator\obj\Debug\D20CharCreator.g.resources
 C:\Users\Nick\Downloads\D20CharCreator-CharacterList\D20CharCreator\obj\Debug\D20CharCreator.Properties.Resources.resources
 C:\Users\Nick\Downloads\D20CharCreator-CharacterList\D20CharCreator\obj\Debug\D20CharCreator.csproj.GenerateResource.Cache
+C:\Users\Nick\Downloads\D20CharCreator-CharacterList\D20CharCreator\obj\Debug\D20CharCreator.csprojResolveAssemblyReference.cache

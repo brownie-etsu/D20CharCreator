@@ -69,6 +69,32 @@ namespace D20CharCreator
             return cmd.ExecuteNonQuery() == 1;
         }
 
+        public static bool IsUsernameInUse(string username)
+        {
+            MySqlConnection conn = new MySqlConnection(connectionString);
+
+            conn.Open();
+
+            MySqlCommand cmd = new MySqlCommand("SELECT COUNT(*) FROM dnd_users WHERE username = @username", conn);
+
+            cmd.Parameters.AddWithValue("@username", username);
+
+            return (long)cmd.ExecuteScalar() == 1;
+        }
+
+        public static bool IsEmailInUse(string email)
+        {
+            MySqlConnection conn = new MySqlConnection(connectionString);
+
+            conn.Open();
+
+            MySqlCommand cmd = new MySqlCommand("SELECT COUNT(*) FROM dnd_users WHERE email = @email", conn);
+
+            cmd.Parameters.AddWithValue("@email", email);
+
+            return (long)cmd.ExecuteScalar() == 1;
+        }
+
         public static Character[] GetCharacterList(int userId)
         {
             MySqlConnection conn = new MySqlConnection(connectionString);
@@ -96,10 +122,17 @@ namespace D20CharCreator
                 characters[i] = new Character();
 
                 characters[i].CharacterId = (int)charData[0];
-                characters[i].Statistic = (int)charData[2];
-                characters[i].Level = (int)charData[3];
-                characters[i].Name = (string)charData[4];
-                characters[i].Class = (ClassType)charData[5];
+
+                if (!(charData[2] is DBNull))
+                    characters[i].Statistic = (int)charData[2];
+
+                if (!(charData[3] is DBNull))
+                    characters[i].Level = (int)charData[3];
+
+                characters[i].Name = charData[4] is DBNull ? "In Progress" : (string)charData[4];
+
+                if (!(charData[5] is DBNull))
+                    characters[i].Class = (ClassType)charData[5];
             }
 
             return characters;
@@ -114,6 +147,19 @@ namespace D20CharCreator
             MySqlCommand cmd = new MySqlCommand("DELETE FROM dnd_characters WHERE character_id = @id", conn);
 
             cmd.Parameters.AddWithValue("@id", charToDelete.CharacterId);
+
+            cmd.ExecuteNonQuery();
+        }
+
+        public static void CreateEmptyCharacter(int userId)
+        {
+            MySqlConnection conn = new MySqlConnection(connectionString);
+
+            conn.Open();
+
+            MySqlCommand cmd = new MySqlCommand("INSERT INTO dnd_characters(user_id) VALUES(@id)", conn);
+
+            cmd.Parameters.AddWithValue("@id", userId);
 
             cmd.ExecuteNonQuery();
         }

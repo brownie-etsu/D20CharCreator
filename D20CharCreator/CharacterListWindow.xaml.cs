@@ -38,18 +38,6 @@ namespace D20CharCreator
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            /*
-            List<object> stuff = new List<object>();
-            var a = new { Class = ClassType.BARBARIAN, Name = "Name 1" };
-            var b = new { Class = ClassType.ROGUE, Name = "Name 2" };
-            stuff.Add(a);
-            stuff.Add(b);
-
-            CharListTable.ItemsSource = stuff;
-
-            Database.GetCharacterList(17);
-            */
-
             _characters = new List<Character>(Database.GetCharacterList(_userId));
 
             CharListTable.ItemsSource = _characters;
@@ -69,6 +57,7 @@ namespace D20CharCreator
         private void AddCharacterButton_Click(object sender, RoutedEventArgs e)
         {
             Hide();
+            Database.CreateEmptyCharacter(_userId);
             CharacterCreatorWindow charCreatorWin = new CharacterCreatorWindow();
             charCreatorWin.Owner = this;
             charCreatorWin.Show();
