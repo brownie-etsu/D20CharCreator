@@ -13,6 +13,19 @@ namespace D20CharCreator
     {
         private const string connectionString = "server=einstein.etsu.edu;uid=yoderna;pwd=12345;database=yoderna;";
 
+        public static int GetUserId(string username)
+        {
+            MySqlConnection conn = new MySqlConnection(connectionString);
+
+            conn.Open();
+
+            MySqlCommand cmd = new MySqlCommand("SELECT user_id FROM dnd_users WHERE username = @username", conn);
+
+            cmd.Parameters.AddWithValue("@username", username);
+
+            return (int)cmd.ExecuteScalar();
+        }
+
         public static bool LogIn(string username, string password)
         {
             MySqlConnection conn = new MySqlConnection(connectionString);
@@ -82,6 +95,7 @@ namespace D20CharCreator
 
                 characters[i] = new Character();
 
+                characters[i].CharacterId = (int)charData[0];
                 characters[i].Statistic = (int)charData[2];
                 characters[i].Level = (int)charData[3];
                 characters[i].Name = (string)charData[4];
@@ -89,6 +103,19 @@ namespace D20CharCreator
             }
 
             return characters;
+        }
+
+        public static void DeleteCharacter(Character charToDelete)
+        {
+            MySqlConnection conn = new MySqlConnection(connectionString);
+
+            conn.Open();
+
+            MySqlCommand cmd = new MySqlCommand("DELETE FROM dnd_characters WHERE character_id = @id", conn);
+
+            cmd.Parameters.AddWithValue("@id", charToDelete.CharacterId);
+
+            cmd.ExecuteNonQuery();
         }
 
         /// <summary>

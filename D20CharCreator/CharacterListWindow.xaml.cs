@@ -22,15 +22,23 @@ namespace D20CharCreator
     /// </summary>
     public partial class CharacterListWindow : Window
     {
-        private List<Character> _characters = new List<Character>();
+        private int _userId;
+        private List<Character> _characters;
 
         public CharacterListWindow()
         {
             InitializeComponent();
         }
 
+        public CharacterListWindow(int userId)
+        {
+            _userId = userId;
+            InitializeComponent();
+        }
+
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            /*
             List<object> stuff = new List<object>();
             var a = new { Class = ClassType.BARBARIAN, Name = "Name 1" };
             var b = new { Class = ClassType.ROGUE, Name = "Name 2" };
@@ -40,6 +48,22 @@ namespace D20CharCreator
             CharListTable.ItemsSource = stuff;
 
             Database.GetCharacterList(17);
+            */
+
+            _characters = new List<Character>(Database.GetCharacterList(_userId));
+
+            CharListTable.ItemsSource = _characters;
+        }
+
+        private void DeleteCharacterButton_Click(object sender, RoutedEventArgs e)
+        {
+            Character charToDelete = ((FrameworkElement)sender).DataContext as Character;
+
+            Database.DeleteCharacter(charToDelete);
+
+            _characters.Remove(charToDelete);
+
+            CharListTable.Items.Refresh();
         }
 
         private void AddCharacterButton_Click(object sender, RoutedEventArgs e)
