@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:D20CharCreator"
       mc:Ignorable="d" 
       d:DesignHeight="300" d:DesignWidth="300"
-      Title="ClassPage" Width="690" Height="460">
+      Title="ClassPage" Width="690" Height="460" KeepAlive="True">
 
     <Grid>
         <Grid.ColumnDefinitions>

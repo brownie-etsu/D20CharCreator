@@ -6,36 +6,113 @@
       xmlns:local="clr-namespace:D20CharCreator"
       mc:Ignorable="d" 
       d:DesignHeight="300" d:DesignWidth="300"
-      Title="BackgroundPage" Width="690" Height="460">
+      Title="BackgroundPage" Width="758" Height="510" KeepAlive="True">
 
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="33*"/>
-            <ColumnDefinition Width="33*"/>
-            <ColumnDefinition Width="33*"/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <TextBlock x:Name="CharacteristicsTextBlock" HorizontalAlignment="Left" Margin="130,156,0,0" TextWrapping="Wrap" Text="Characteristics" VerticalAlignment="Top" Width="120" FontFamily="Palatino Linotype" FontSize="16" TextAlignment="Center" Height="22" RenderTransformOrigin="0.706,-0.629" Grid.ColumnSpan="2"/>
-        <TextBox x:Name="CharacteristicsTextBox" HorizontalAlignment="Center" Height="150" Margin="145,183,145,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="400" Grid.ColumnSpan="3" BorderBrush="{x:Null}" Background="#99FFFFFF" FontFamily="Palatino Linotype" FontSize="16" AcceptsReturn="True" AcceptsTab="True"/>
-        <Expander x:Name="CharacteristicsExpander" Header="Proficiencies" VerticalAlignment="Top" Margin="0,36,0,0" RenderTransformOrigin="0.521,-0.762" FontFamily="Palatino Linotype" FontSize="16" HorizontalAlignment="Center" Width="150">
-            <StackPanel Margin="10,4,0,0">
-                <CheckBox x:Name="checkBox" Content="Insight"/>
-                <CheckBox x:Name="checkBox1" Content="Religion"/>
-            </StackPanel>
-        </Expander>
-        <Expander x:Name="LanguagesExpander" Header="Languages" VerticalAlignment="Top" Margin="0,36,0,0" RenderTransformOrigin="0.521,-0.762" FontFamily="Palatino Linotype" FontSize="16" HorizontalAlignment="Center" Width="150" Grid.Column="1">
-            <StackPanel Margin="10,4,0,0">
-                <CheckBox x:Name="checkBox2" Content="English"/>
-                <CheckBox x:Name="checkBox3" Content="Elvish"/>
-            </StackPanel>
-        </Expander>
-        <Expander x:Name="EquipmentExpander" Header="Equipment" VerticalAlignment="Top" Margin="0,36,0,0" RenderTransformOrigin="0.521,-0.762" FontFamily="Palatino Linotype" FontSize="16" HorizontalAlignment="Center" Width="150" Grid.Column="2">
-            <StackPanel Margin="10,4,0,0">
-                <CheckBox x:Name="checkBox4" Content="Holy Symbol"/>
-                <CheckBox x:Name="checkBox5" Content="Prayer Book"/>
-            </StackPanel>
-        </Expander>
+        <StackPanel VerticalAlignment="Center">
+            <TextBlock x:Name="BackgroundTextBlock" TextWrapping="Wrap" Text="Choose Background" FontFamily="Palatino Linotype" FontSize="18.667" TextAlignment="Center"/>
+            <ListBox x:Name="BackgroundListBox" Margin="0" HorizontalAlignment="Center" FontFamily="Palatino Linotype" FontSize="18.667" BorderThickness="3" BorderBrush="#FF370000" Width="200" VerticalAlignment="Center" SelectionChanged="BackgroundListBox_SelectionChanged">
+                <ListBoxItem Content="Acolyte"/>
+                <ListBoxItem Content="Charlatan"/>
+                <ListBoxItem Content="Criminal"/>
+                <ListBoxItem Content="Entertainer"/>
+                <ListBoxItem Content="Folk Hero"/>
+                <ListBoxItem Content="Guild Artisan"/>
+                <ListBoxItem Content="Hermit"/>
+                <ListBoxItem Content="Noble"/>
+                <ListBoxItem Content="Outlander"/>
+                <ListBoxItem Content="Sage"/>
+                <ListBoxItem Content="Sailor"/>
+                <ListBoxItem Content="Soldier"/>
+                <ListBoxItem Content="Urchin"/>
+            </ListBox>
+        </StackPanel>
+        <TabControl x:Name="BackgroundTabControl" Grid.Column="1" Margin="0,10,30,30" Background="#99FFFFFF" BorderThickness="3" BorderBrush="#FF720000">
+            <TabItem Header="Proficiencies" FontFamily="Palatino Linotype">
+                <StackPanel VerticalAlignment="Top" Margin="0,10,0,0">
+                    <TextBlock x:Name="ProficienciesTextBlock" TextWrapping="Wrap" Text="Proficiencies" HorizontalAlignment="Center" FontSize="26.667"/>
+                    <Separator Margin="0" VerticalAlignment="Top" Height="20" Foreground="{x:Null}" BorderThickness="0" Background="#FF720000"/>
+                    <TextBlock x:Name="CharacterTextBlock" TextWrapping="Wrap" Text="Character" HorizontalAlignment="Center" FontSize="26.667" Margin="95.053,0,94.946,0"/>
+                    <TextBlock x:Name="Proficiency1TextBlock" TextWrapping="Wrap" FontSize="21.333" HorizontalAlignment="Center"/>
+                    <TextBlock x:Name="Proficiency2TextBlock" TextWrapping="Wrap" FontSize="21.333" Margin="0" HorizontalAlignment="Center"/>
+                    <Separator Margin="0" VerticalAlignment="Top" Height="20" Foreground="{x:Null}" BorderThickness="0" Background="{x:Null}"/>
+                    <TextBlock x:Name="ToolsTextBlock" TextWrapping="Wrap" Text="Tools" HorizontalAlignment="Center" FontSize="26.667" Margin="111.82,0,111.179,0"/>
+                    <TextBlock x:Name="Proficiency3TextBlock" TextWrapping="Wrap" FontSize="21.333" HorizontalAlignment="Center" Margin="0"/>
+                    <TextBlock x:Name="Proficiency4TextBlock" TextWrapping="Wrap" FontSize="21.333" Margin="0" HorizontalAlignment="Center"/>
+                </StackPanel>
+            </TabItem>
+            <TabItem Header="Languages" FontFamily="Palatino Linotype">
+                <StackPanel VerticalAlignment="Top" Margin="0,10,0,0">
+                    <TextBlock x:Name="LanguagesTextBlock" TextWrapping="Wrap" HorizontalAlignment="Center" FontSize="26.667" Text="Additional Languages"/>
+                    <Separator Margin="0" Height="20" Foreground="{x:Null}" BorderThickness="0" Background="#FF720000" VerticalAlignment="Top"/>
+                    <ComboBox x:Name="Language1ComboBox" Padding="6,3,5,3" FontSize="18.667" Width="300">
+                        <ComboBoxItem Content="Abyssal"/>
+                        <ComboBoxItem Content="Aquan"/>
+                        <ComboBoxItem Content="Auran"/>
+                        <ComboBoxItem Content="Celestial"/>
+                        <ComboBoxItem Content="Common"/>
+                        <ComboBoxItem Content="Deep Speech"/>
+                        <ComboBoxItem Content="Draconic"/>
+                        <ComboBoxItem Content="Druidic"/>
+                        <ComboBoxItem Content="Dwarvish"/>
+                        <ComboBoxItem Content="Elvish"/>
+                        <ComboBoxItem Content="Giant"/>
+                        <ComboBoxItem Content="Gnomish"/>
+                        <ComboBoxItem Content="Goblin"/>
+                        <ComboBoxItem Content="Gnoll"/>
+                        <ComboBoxItem Content="Halfling"/>
+                        <ComboBoxItem Content="Ignan"/>
+                        <ComboBoxItem Content="Infernal"/>
+                        <ComboBoxItem Content="Orc"/>
+                        <ComboBoxItem Content="Primordial"/>
+                        <ComboBoxItem Content="Sylvan"/>
+                        <ComboBoxItem Content="Terran"/>
+                        <ComboBoxItem Content="Undercommon"/>
+                    </ComboBox>
+                    <Separator Margin="0" VerticalAlignment="Top" Height="20" Foreground="{x:Null}" BorderThickness="0" Background="{x:Null}"/>
+                    <ComboBox x:Name="Language2ComboBox" Padding="6,3,5,3" FontSize="18.667" Width="300">
+                        <ComboBoxItem Content="Abyssal"/>
+                        <ComboBoxItem Content="Aquan"/>
+                        <ComboBoxItem Content="Auran"/>
+                        <ComboBoxItem Content="Celestial"/>
+                        <ComboBoxItem Content="Common"/>
+                        <ComboBoxItem Content="Deep Speech"/>
+                        <ComboBoxItem Content="Draconic"/>
+                        <ComboBoxItem Content="Druidic"/>
+                        <ComboBoxItem Content="Dwarvish"/>
+                        <ComboBoxItem Content="Elvish"/>
+                        <ComboBoxItem Content="Giant"/>
+                        <ComboBoxItem Content="Gnomish"/>
+                        <ComboBoxItem Content="Goblin"/>
+                        <ComboBoxItem Content="Gnoll"/>
+                        <ComboBoxItem Content="Halfling"/>
+                        <ComboBoxItem Content="Ignan"/>
+                        <ComboBoxItem Content="Infernal"/>
+                        <ComboBoxItem Content="Orc"/>
+                        <ComboBoxItem Content="Primordial"/>
+                        <ComboBoxItem Content="Sylvan"/>
+                        <ComboBoxItem Content="Terran"/>
+                        <ComboBoxItem Content="Undercommon"/>
+                    </ComboBox>
+                </StackPanel>
+            </TabItem>
+            <TabItem Header="Equipment" FontFamily="Palatino Linotype">
+                <StackPanel VerticalAlignment="Top" Margin="0,10,0,0">
+                    <TextBlock x:Name="EquipmentTextBlock" TextWrapping="Wrap" HorizontalAlignment="Center" FontSize="26.667" Text="Equipment"/>
+                    <Separator Margin="0" Height="20" Foreground="{x:Null}" BorderThickness="0" Background="#FF720000" VerticalAlignment="Top"/>
+                    <TextBox x:Name="EquipmentTextBox" TextWrapping="Wrap" FontSize="13.333" IsReadOnly="True" Margin="20,0" Height="352"/>
+                </StackPanel>
+            </TabItem>
+            <TabItem Header="Characteristics" FontFamily="Palatino Linotype">
+                <Grid/>
+            </TabItem>
+        </TabControl>
     </Grid>
 </Page>

@@ -19,9 +19,20 @@ namespace D20CharCreator
     /// </summary>
     public partial class CharacterCreatorWindow : Window
     {
+        Page backgroundPage;
+        Page classPage;
+
         public CharacterCreatorWindow()
         {
             InitializeComponent();
+            LoadPages();
+        }
+
+        private void LoadPages()
+        {
+            backgroundPage = new BackgroundPage();
+            classPage = new ClassPage();
+            frame.Navigate(backgroundPage);
         }
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
@@ -31,12 +42,12 @@ namespace D20CharCreator
 
         private void ClassButton_Click(object sender, RoutedEventArgs e)
         {
-            frame.Source = new Uri("pack://application:,,,/ClassPage.xaml");
+            frame.Navigate(classPage);
         }
 
         private void BackgroundButton_Click(object sender, RoutedEventArgs e)
         {
-            frame.Source = new Uri("pack://application:,,,/BackgroundPage.xaml");
+            frame.Navigate(backgroundPage);
         }
     }
 }
