@@ -38,22 +38,6 @@ namespace D20CharCreator
 
             if(IsValidInput())
             {
-                if (Database.IsUsernameInUse(UsernameInputBox.Text))
-                {
-                    MessageBox.Show("The name \"" + UsernameInputBox.Text + "\" is already in use.", "Account Failed", MessageBoxButton.OK, MessageBoxImage.Error);
-                    UsernameInputBox.Clear();
-                    Show();
-                    return;
-                }
-
-                if  (Database.IsEmailInUse(EmailInputBox.Text))
-                {
-                    MessageBox.Show("The email \"" + EmailInputBox.Text + "\" is already in use.", "Account Failed", MessageBoxButton.OK, MessageBoxImage.Error);
-                    EmailInputBox.Clear();
-                    Show();
-                    return;    
-                }
-
                 bool created = Database.SignUp(UsernameInputBox.Text, FirstNameInputBox.Text, LastNameInputBox.Text, EmailInputBox.Text, PasswordInputBox1.Password);
 
                 if (created)
@@ -63,7 +47,7 @@ namespace D20CharCreator
                 }
                 else
                 {
-                    MessageBox.Show("An unknown error has occurred.", "Account Failed", MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageBox.Show("\"" + UsernameInputBox.Text + "\" is already taken.", "Account Failed", MessageBoxButton.OK, MessageBoxImage.Error);
                     UsernameInputBox.Clear();
                     Show();
                 }

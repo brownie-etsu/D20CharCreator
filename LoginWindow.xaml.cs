@@ -39,8 +39,7 @@ namespace D20CharCreator
 
             if (Database.LogIn(UsernameInputBox.Text, PasswordInputBox.Password))
             {
-                int userId = Database.GetUserId(UsernameInputBox.Text);
-                CharacterListWindow charListWindow = new CharacterListWindow(userId);
+                CharacterListWindow charListWindow = new CharacterListWindow();
                 charListWindow.Show();
                 Close();
             }
