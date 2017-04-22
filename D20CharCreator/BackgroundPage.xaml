@@ -43,7 +43,7 @@
                     <TextBlock x:Name="Proficiency1TextBlock" TextWrapping="Wrap" FontSize="21.333" HorizontalAlignment="Center"/>
                     <TextBlock x:Name="Proficiency2TextBlock" TextWrapping="Wrap" FontSize="21.333" Margin="0" HorizontalAlignment="Center"/>
                     <Separator Margin="0" VerticalAlignment="Top" Height="20" Foreground="{x:Null}" BorderThickness="0" Background="{x:Null}"/>
-                    <TextBlock x:Name="ToolsTextBlock" TextWrapping="Wrap" Text="Tools" HorizontalAlignment="Center" FontSize="26.667" Margin="111.82,0,111.179,0"/>
+                    <TextBlock x:Name="ToolsTextBlock" TextWrapping="Wrap" Text="Tool" HorizontalAlignment="Center" FontSize="26.667" Margin="111.82,0,111.179,0"/>
                     <TextBlock x:Name="Proficiency3TextBlock" TextWrapping="Wrap" FontSize="21.333" HorizontalAlignment="Center" Margin="0"/>
                     <TextBlock x:Name="Proficiency4TextBlock" TextWrapping="Wrap" FontSize="21.333" Margin="0" HorizontalAlignment="Center"/>
                 </StackPanel>
@@ -107,7 +107,8 @@
                 <StackPanel VerticalAlignment="Top" Margin="0,10,0,0">
                     <TextBlock x:Name="EquipmentTextBlock" TextWrapping="Wrap" HorizontalAlignment="Center" FontSize="26.667" Text="Equipment"/>
                     <Separator Margin="0" Height="20" Foreground="{x:Null}" BorderThickness="0" Background="#FF720000" VerticalAlignment="Top"/>
-                    <TextBox x:Name="EquipmentTextBox" TextWrapping="Wrap" FontSize="13.333" IsReadOnly="True" Margin="20,0" Height="352"/>
+                    <ComboBox x:Name="EquipmentComboBox" Margin="20,0" SelectionChanged="EquipmentComboBox_SelectionChanged" IsReadOnly="True" IsEnabled="False"/>
+                    <TextBox x:Name="EquipmentTextBox" TextWrapping="Wrap" FontSize="13.333" IsReadOnly="True" Margin="20,0" Height="330"/>
                 </StackPanel>
             </TabItem>
             <TabItem Header="Characteristics" FontFamily="Palatino Linotype">

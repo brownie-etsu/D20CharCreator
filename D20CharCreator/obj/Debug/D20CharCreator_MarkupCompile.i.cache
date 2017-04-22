@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\Nick\Downloads\D20CharCreator-CharacterList\D20CharCreator\obj\Debug\
+C:\Users\Elliot\Documents\GitHub\D20CharCreator\D20CharCreator\obj\Debug\
 D20CharCreator
 none
 false
 DEBUG;TRACE
-C:\Users\Nick\Downloads\D20CharCreator-CharacterList\D20CharCreator\App.xaml
+C:\Users\Elliot\Documents\GitHub\D20CharCreator\D20CharCreator\App.xaml
 6-373374118
 16414483
-19-1333405003
-151562799320
+19-414542111
+151398294550
 BackgroundPage.xaml;CharacterCreatorWindow.xaml;CharacterListWindow.xaml;ClassPage.xaml;CreateAccountWindow.xaml;LoginWindow.xaml;
 
-False
+True
 
