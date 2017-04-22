@@ -91,7 +91,7 @@
       <DependentUpon>BackgroundPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Character.cs" />
-    <Compile Include="CharacterClass.cs" />
+    <Compile Include="CharacterBackground.cs" />
     <Compile Include="CharacterCreatorWindow.xaml.cs">
       <DependentUpon>CharacterCreatorWindow.xaml</DependentUpon>
     </Compile>
@@ -106,6 +106,7 @@
     <Compile Include="CreateAccountWindow.xaml.cs">
       <DependentUpon>CreateAccountWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Language.cs" />
     <Compile Include="LoginWindow.xaml.cs">
       <DependentUpon>LoginWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
