@@ -19,8 +19,8 @@ namespace D20CharCreator
     /// </summary>
     public partial class CharacterCreatorWindow : Window
     {
-        Page backgroundPage;
-        Page classPage;
+        BackgroundPage backgroundPage;
+        ClassPage classPage;
 
         public CharacterCreatorWindow()
         {

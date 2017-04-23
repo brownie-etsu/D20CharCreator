@@ -6,26 +6,86 @@
       xmlns:local="clr-namespace:D20CharCreator"
       mc:Ignorable="d" 
       d:DesignHeight="300" d:DesignWidth="300"
-      Title="ClassPage" Width="690" Height="460" KeepAlive="True">
-
-    <Grid>
+      Title="ClassPage" Width="758" Height="510" KeepAlive="True">
+    <Grid Margin="0">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="50*"/>
-            <ColumnDefinition Width="50*"/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Expander x:Name="ClassExpander" Header="Class" VerticalAlignment="Top" Margin="0,46,0,0" RenderTransformOrigin="0.521,-0.762" FontFamily="Palatino Linotype" FontSize="24" HorizontalAlignment="Center" Width="150">
-            <StackPanel Margin="10,4,0,0">
-                <RadioButton x:Name="radioButton" Content="Barbarian"/>
-                <RadioButton x:Name="radioButton1" Content="Cleric"/>
-                <RadioButton x:Name="radioButton2" Content="Rogue"/>
-                <RadioButton x:Name="radioButton3" Content="Wizard"/>
-            </StackPanel>
-        </Expander>
-        <Expander x:Name="EquipmentExpander" Header="Equipment" VerticalAlignment="Top" Margin="97,46,38,0" RenderTransformOrigin="0.521,-0.762" FontFamily="Palatino Linotype" FontSize="24" HorizontalAlignment="Center" Width="210" Grid.Column="1">
-            <StackPanel Margin="10,4,0,0">
-                <CheckBox x:Name="checkBox4" Content="Great Axe"/>
-                <CheckBox x:Name="checkBox" Content="Two Hand Axes"/>
-            </StackPanel>
-        </Expander>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <StackPanel VerticalAlignment="Center">
+            <TextBlock x:Name="ClassTextBlock" TextWrapping="Wrap" Text="Choose Class" FontFamily="Palatino Linotype" FontSize="18.667" TextAlignment="Center"/>
+            <ListBox x:Name="ClassListBox" Margin="0" HorizontalAlignment="Center" FontFamily="Palatino Linotype" FontSize="18.667" BorderThickness="3" BorderBrush="#FF370000" Width="200" VerticalAlignment="Center" SelectionChanged="ClassComboBox_SelectionChanged">
+                <ListBoxItem Content="Barbarian"/>
+                <ListBoxItem Content="Cleric"/>
+                <ListBoxItem Content="Rogue"/>
+                <ListBoxItem Content="Wizard"/>
+            </ListBox>
+        </StackPanel>
+        <TabControl x:Name="ClassTabControl" Grid.Column="1" Margin="0,10,30,30" Background="#99FFFFFF" BorderThickness="3" BorderBrush="#FF720000">
+            <TabItem Header="Hit Points" FontFamily="Palatino Linotype">
+                <StackPanel VerticalAlignment="Top" Margin="0,10,0,0">
+                    <TextBlock x:Name="HitPointsTextBlock" TextWrapping="Wrap" HorizontalAlignment="Center" FontSize="26.667" Text="Hit Points"/>
+                    <Separator Margin="0" Height="20" Foreground="{x:Null}" BorderThickness="0" Background="#FF720000" VerticalAlignment="Top"/>
+                    <TextBlock x:Name="HitDiceTextBlock" TextWrapping="Wrap" FontSize="24" Text="Hit Dice" TextAlignment="Center"/>
+                    <TextBox x:Name="HitDiceTextBox" Height="60" TextWrapping="Wrap" Background="{x:Null}" BorderBrush="{x:Null}" FontSize="16" TextAlignment="Center" IsReadOnly="True"/>
+                    <TextBlock x:Name="HitPoints1stLevelTextBlock" TextWrapping="Wrap" FontSize="24" Margin="0,18,0,0" Text="Hit Points at 1st Level" TextAlignment="Center"/>
+                    <TextBox x:Name="HitPoints1stLevelTextBox" Height="60" TextWrapping="Wrap" Background="{x:Null}" BorderBrush="{x:Null}" FontSize="16" TextAlignment="Center" IsReadOnly="True"/>
+                    <TextBlock x:Name="HitPointsHigherLevelTextBlock" TextWrapping="Wrap" FontSize="24" Margin="0,15,0,0" Text="Hit Points at Higher Levels" TextAlignment="Center"/>
+                    <TextBox x:Name="HitPointsHigherLevelTextBox" Height="60" TextWrapping="Wrap" Background="{x:Null}" BorderBrush="{x:Null}" FontSize="16" TextAlignment="Center" IsReadOnly="True"/>
+                </StackPanel>
+            </TabItem>
+            <TabItem Header="Proficiencies" FontFamily="Palatino Linotype">
+                <StackPanel VerticalAlignment="Top" Margin="0,10,0,0">
+                    <TextBlock x:Name="ProficienciesTextBlock" TextWrapping="Wrap" Text="Proficiencies" HorizontalAlignment="Center" FontSize="26.667"/>
+                    <Separator Margin="0" VerticalAlignment="Top" Height="20" Foreground="{x:Null}" BorderThickness="0" Background="#FF720000"/>
+                    <TextBlock x:Name="ArmorProficiencyTextBlock" TextWrapping="Wrap" Text="Armor" HorizontalAlignment="Center" FontSize="26.667" Margin="0,0,-1,0"/>
+                    <TextBox x:Name="ArmorProficiencyTextBox" TextWrapping="Wrap" FontSize="18.667" TextAlignment="Center" Background="{x:Null}" BorderBrush="{x:Null}" Height="27" IsReadOnly="True"/>
+                    <TextBlock x:Name="WeaponsProficiencyTextBlock" TextWrapping="Wrap" Text="Weapons" HorizontalAlignment="Center" FontSize="26.667" Margin="0,20,0,0"/>
+                    <TextBox x:Name="WeaponsProficiencyTextBox" Height="27" TextWrapping="Wrap" Background="{x:Null}" BorderBrush="{x:Null}" TextAlignment="Center" FontSize="18.667" IsReadOnly="True"/>
+                    <TextBlock x:Name="ToolsProficiencyTextBlock" TextWrapping="Wrap" Text="Tools" HorizontalAlignment="Center" FontSize="26.667" Margin="0,20,0,0"/>
+                    <TextBox x:Name="ToolsProficiencyTextBox" Height="27" TextWrapping="Wrap" Background="{x:Null}" BorderBrush="{x:Null}" TextAlignment="Center" FontSize="18.667" IsReadOnly="True"/>
+                    <TextBlock x:Name="ThrowsProficiencyTextBlock" TextWrapping="Wrap" Text="Saving Throws" HorizontalAlignment="Center" FontSize="26.667" Margin="0,20,0,0"/>
+                    <TextBox x:Name="ThrowsProficiencyTextBox" Height="27" TextWrapping="Wrap" Background="{x:Null}" BorderBrush="{x:Null}" TextAlignment="Center" FontSize="18.667" IsReadOnly="True"/>
+                </StackPanel>
+            </TabItem>
+            <TabItem Header="Skills" FontFamily="Palatino Linotype">
+                <StackPanel VerticalAlignment="Top" Margin="0,10,0,0">
+                    <TextBlock x:Name="SkillsTextBlock" TextWrapping="Wrap" Text="Skills" HorizontalAlignment="Center" FontSize="26.667"/>
+                    <Separator Margin="0" VerticalAlignment="Top" Height="20" Foreground="{x:Null}" BorderThickness="0" Background="#FF720000"/>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="66*"/>
+                            <ColumnDefinition Width="33*"/>
+                        </Grid.ColumnDefinitions>
+                        <ListBox x:Name="SkillsListBox" Width="140" HorizontalAlignment="Center" Margin="0" Height="180" FontSize="16"/>
+                        <Button x:Name="RemoveButton" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="1" Height="20" Width="20" Background="#FFB65050" Click="RemoveButton_Click"/>
+                    </Grid>
+                    <Grid Margin="0,20,0,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="66*"/>
+                            <ColumnDefinition Width="33*"/>
+                        </Grid.ColumnDefinitions>
+                        <ComboBox x:Name="SkillsComboBox" HorizontalAlignment="Center" VerticalAlignment="Center" Width="170" Margin="1,0,0,0" FontSize="16"/>
+                        <Button x:Name="AddButton" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="1" Height="20" Width="20" Background="#FF82CF6C" Click="AddButton_Click"/>
+                    </Grid>
+                </StackPanel>
+            </TabItem>
+            <TabItem Header="Equipment" FontFamily="Palatino Linotype">
+                <StackPanel VerticalAlignment="Top" Margin="0,10,0,0">
+                    <TextBlock x:Name="EquipmentTextBlock" TextWrapping="Wrap" HorizontalAlignment="Center" FontSize="26.667" Text="Equipment"/>
+                    <Separator Margin="0" Height="20" Foreground="{x:Null}" BorderThickness="0" Background="#FF720000" VerticalAlignment="Top"/>
+                </StackPanel>
+            </TabItem>
+            <TabItem Header="Features" FontFamily="Palatino Linotype">
+                <StackPanel VerticalAlignment="Top" Margin="0,10,0,0">
+                    <TextBlock x:Name="FeaturesTextBlock" TextWrapping="Wrap" HorizontalAlignment="Center" FontSize="26.667" Text="Features"/>
+                    <Separator Margin="0" Height="20" Foreground="{x:Null}" BorderThickness="0" Background="#FF720000" VerticalAlignment="Top"/>
+                    <TextBox x:Name="FeaturesTextBox" Height="350" TextWrapping="Wrap" Margin="20,0" FontSize="16"/>
+                </StackPanel>
+            </TabItem>
+        </TabControl>
     </Grid>
 </Page>

@@ -21,9 +21,7 @@ namespace D20CharCreator
     /// </summary>
     public partial class BackgroundPage : Page
     {
-
-        bool isNewCharacter = true;
-
+        public bool isNewCharacter = true;
         int rollsLeft = 3;
 
         OrderedDictionary equipmentList = new OrderedDictionary();
@@ -55,9 +53,7 @@ namespace D20CharCreator
         private void InitializeCharacteristics()
         {
             if(isNewCharacter)
-            {
                 Randomize();
-            }
             
             PopulatePersonalityTraitsList();
             PopulateIdealTraitsList();
