@@ -22,25 +22,40 @@ namespace D20CharCreator
     public partial class BackgroundPage : Page
     {
         public bool isNewCharacter = true;
-        int rollsLeft = 3;
 
+        //Number of rerolls remaining
+        public int rollsLeft = 3;
+
+        //List of equipment for equipment selection
         OrderedDictionary equipmentList = new OrderedDictionary();
+
+        //Int array for each characteristic that the player rolled
         int[,] characteristicsSave = new int[13, 4];
+
+        //Randomizer for the characteristic rolls
         Random rand = new Random();
 
+        //Lists for each possible personality, ideal, bond, and flaw
         OrderedDictionary personalityTraitsList = new OrderedDictionary();
         OrderedDictionary idealTraitsList = new OrderedDictionary();
         OrderedDictionary bondTraitsList = new OrderedDictionary();
         OrderedDictionary flawTraitsList = new OrderedDictionary();
 
+        /// <summary>
+        /// Default constructor
+        /// </summary>
         public BackgroundPage()
         {
             InitializeComponent();
             InitializeCharacteristics();
         }
 
+        /// <summary>
+        /// Roll/rerolls characteristics.
+        /// </summary>
         private void Randomize()
         {
+            //Go through each background and randomize characteristics
             for (int a = 0; a < 13; a++)
             {
                 characteristicsSave[a, 0] = rand.Next(8);
@@ -50,23 +65,30 @@ namespace D20CharCreator
             }
         }
 
+        /// <summary>
+        /// Initializes the characteristics.
+        /// </summary>
         private void InitializeCharacteristics()
         {
+            //Roll the first time if this is a new character
             if(isNewCharacter)
                 Randomize();
             
+            //Fill each list with the appropriate options
             PopulatePersonalityTraitsList();
             PopulateIdealTraitsList();
             PopulateBondTraitsList();
             PopulateFlawTraitsList();
 
+            //Set the rolls left indicator
             RollsTextBlock.Text = "Rolls: " + rollsLeft;
         }
 
+        /// <summary>
+        /// Populates the personality traits list.
+        /// </summary>
         private void PopulatePersonalityTraitsList()
         {
-            personalityTraitsList.Clear();
-
             personalityTraitsList.Add("Acolyte", new string[]
             {
                 "I idolize a particular hero of my faith and constantly refer to that person's deeds and example.",
@@ -212,10 +234,11 @@ namespace D20CharCreator
             });
         }
 
+        /// <summary>
+        /// Populates the ideal traits list.
+        /// </summary>
         private void PopulateIdealTraitsList()
         {
-            idealTraitsList.Clear();
-
             idealTraitsList.Add("Acolyte", new string[]
             {
                 "Tradition. The ancient traditions of worship and sacrifice must be preserved and upheld. (Lawful)",
@@ -335,10 +358,11 @@ namespace D20CharCreator
             });
         }
 
+        /// <summary>
+        /// Populates the bond traits list.
+        /// </summary>
         private void PopulateBondTraitsList()
         {
-            bondTraitsList.Clear();
-
             bondTraitsList.Add("Acolyte", new string[]
             {
                 "I would die to recover an ancient relic of my faith that was lost long ago.",
@@ -458,10 +482,11 @@ namespace D20CharCreator
             });
         }
 
+        /// <summary>
+        /// Populates the flaw traits list.
+        /// </summary>
         private void PopulateFlawTraitsList()
         {
-            flawTraitsList.Clear();
-
             flawTraitsList.Add("Acolyte", new string[]
             {
                 "I judge others harshly, and myself even more severely.",
@@ -581,32 +606,44 @@ namespace D20CharCreator
             });
         }
 
+        /// <summary>
+        /// Changes things up whenever the player selects a different background.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="SelectionChangedEventArgs"/> instance containing the event data.</param>
         private void BackgroundListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            //Enable the equipment combo box
             EquipmentComboBox.IsEnabled = true;
-            ListBoxItem item = BackgroundListBox.SelectedValue as ListBoxItem;
 
+            //Load up each characteristic list relevant to the currently selected background
             string[] personalityListing = (string[])personalityTraitsList[BackgroundListBox.SelectedIndex];
             string[] idealListing = (string[])idealTraitsList[BackgroundListBox.SelectedIndex];
             string[] bondListing = (string[])bondTraitsList[BackgroundListBox.SelectedIndex];
             string[] flawListing = (string[])flawTraitsList[BackgroundListBox.SelectedIndex];
 
+            //Put the current rolled characteristics into their text boxes
             PersonalityTextBox.Text = personalityListing[characteristicsSave[BackgroundListBox.SelectedIndex, 0]];
             IdealTextBox.Text = idealListing[characteristicsSave[BackgroundListBox.SelectedIndex, 1]];
             BondTextBox.Text = bondListing[characteristicsSave[BackgroundListBox.SelectedIndex, 2]];
             FlawTextBox.Text = flawListing[characteristicsSave[BackgroundListBox.SelectedIndex, 3]];
 
+            //Take a look at the selected item
+            ListBoxItem item = BackgroundListBox.SelectedValue as ListBoxItem;
             switch (item.Content as string)
             {
                 case "Acolyte":
+                    //Set the proficiencies
                     Proficiency1TextBlock.Text = "Insight";
                     Proficiency2TextBlock.Text = "Religion";
                     Proficiency3TextBlock.Text = "";
                     Proficiency4TextBlock.Text = "";
 
+                    //Enable both language combo boxes
                     Language1ComboBox.IsEnabled = true;
                     Language2ComboBox.IsEnabled = true;
 
+                    //Set the equipment options and show them
                     equipmentList.Clear();
                     equipmentList.Add("Pack A", "A holy symbol\nA prayer book or prayer wheel\n5 sticks of incense\nVestments\nA set of common clothes\nA belt pouch containing 15 gp");
                     EquipmentComboBox.ItemsSource = equipmentList.Keys;
@@ -616,22 +653,24 @@ namespace D20CharCreator
                     break;
 
                 case "Charlatan":
+                    //Set the proficiencies
                     Proficiency1TextBlock.Text = "Deception";
                     Proficiency2TextBlock.Text = "Sleight of Hand";
                     Proficiency3TextBlock.Text = "Disguise Kit";
                     Proficiency4TextBlock.Text = "Forgery Kit";
 
+                    //Disable language options
                     Language1ComboBox.IsEnabled = false;
                     Language2ComboBox.IsEnabled = false;
                     Language1ComboBox.SelectedIndex = -1;
                     Language2ComboBox.SelectedIndex = -1;
 
+                    //Set the equipment options and show them
                     equipmentList.Clear();
                     equipmentList.Add("Pack A", "A set of fine clothes\nA disguise kit\nTen stoppered bottles filled with colored liquid\nA belt pouch containing 15 gp");
                     equipmentList.Add("Pack B", "A set of fine clothes\nA disguise kit\nA set of weighted dice\nA belt pouch containing 15 gp");
                     equipmentList.Add("Pack C", "A set of fine clothes\nA disguise kit\nA deck of marked cards\nA belt pouch containing 15 gp");
                     equipmentList.Add("Pack D", "A set of fine clothes\nA disguise kit\nA signet ring of an imaginary duke\nA belt pouch containing 15 gp");
-
                     EquipmentComboBox.ItemsSource = equipmentList.Keys;
                     EquipmentComboBox.SelectedIndex = 0;
                     EquipmentTextBox.Text = equipmentList[EquipmentComboBox.SelectedIndex].ToString();
@@ -639,19 +678,21 @@ namespace D20CharCreator
                     break;
 
                 case "Criminal":
+                    //Set the proficiencies
                     Proficiency1TextBlock.Text = "Deception";
                     Proficiency2TextBlock.Text = "Stealth";
                     Proficiency3TextBlock.Text = "One type of gaming set";
                     Proficiency4TextBlock.Text = "Thieves' Tools";
 
+                    //Disable language options
                     Language1ComboBox.IsEnabled = false;
                     Language2ComboBox.IsEnabled = false;
                     Language1ComboBox.SelectedIndex = -1;
                     Language2ComboBox.SelectedIndex = -1;
 
+                    //Set the equipment options and show them
                     equipmentList.Clear();
                     equipmentList.Add("Pack A", "A crowbar\nA set of dark common clothes including a hood\nA belt pouch containing 15 GP");
-
                     EquipmentComboBox.ItemsSource = equipmentList.Keys;
                     EquipmentComboBox.SelectedIndex = 0;
                     EquipmentTextBox.Text = equipmentList[EquipmentComboBox.SelectedIndex].ToString();
@@ -659,21 +700,23 @@ namespace D20CharCreator
                     break;
 
                 case "Entertainer":
+                    //Set the proficiencies
                     Proficiency1TextBlock.Text = "Acrobatics";
                     Proficiency2TextBlock.Text = "Performance";
                     Proficiency3TextBlock.Text = "Disguise Kit";
                     Proficiency4TextBlock.Text = "One type of musical instrument";
 
+                    //Disable language options
                     Language1ComboBox.IsEnabled = false;
                     Language2ComboBox.IsEnabled = false;
                     Language1ComboBox.SelectedIndex = -1;
                     Language2ComboBox.SelectedIndex = -1;
 
+                    //Set the equipment options and show them
                     equipmentList.Clear();
                     equipmentList.Add("Pack A", "A musical instrument\nThe favor of an admirer -- Love letter\nA costume\nA belt pouch containing 15 gp");
                     equipmentList.Add("Pack B", "A musical instrument\nThe favor of an admirer -- Lock of hair\nA costume\nA belt pouch containing 15 gp");
                     equipmentList.Add("Pack C", "A musical instrument\nThe favor of an admirer -- Trinket\nA costume\nA belt pouch containing 15 gp");
-
                     EquipmentComboBox.ItemsSource = equipmentList.Keys;
                     EquipmentComboBox.SelectedIndex = 0;
                     EquipmentTextBox.Text = equipmentList[EquipmentComboBox.SelectedIndex].ToString();
@@ -681,18 +724,21 @@ namespace D20CharCreator
                     break;
 
                 case "Folk Hero":
+                    //Set the proficiencies
                     Proficiency1TextBlock.Text = "Animal Handling";
                     Proficiency2TextBlock.Text = "Survival";
                     Proficiency3TextBlock.Text = "One type of artisan's tools";
                     Proficiency4TextBlock.Text = "Land Vehicles";
+
+                    //Disable language options
                     Language1ComboBox.IsEnabled = false;
                     Language2ComboBox.IsEnabled = false;
                     Language1ComboBox.SelectedIndex = -1;
                     Language2ComboBox.SelectedIndex = -1;
 
+                    //Set the equipment options and show them
                     equipmentList.Clear();
                     equipmentList.Add("Pack A", "A set of artisan’s tools\nA shovel\nAn iron pot\nA set of common clothes\nA belt pouch containing 10 gp");
-
                     EquipmentComboBox.ItemsSource = equipmentList.Keys;
                     EquipmentComboBox.SelectedIndex = 0;
                     EquipmentTextBox.Text = equipmentList[EquipmentComboBox.SelectedIndex].ToString();
@@ -700,17 +746,20 @@ namespace D20CharCreator
                     break;
 
                 case "Guild Artisan":
+                    //Set the proficiencies
                     Proficiency1TextBlock.Text = "Insight";
                     Proficiency2TextBlock.Text = "Persuasion";
                     Proficiency3TextBlock.Text = "One type of artisan's tools";
                     Proficiency4TextBlock.Text = "";
+
+                    //Enable one language option
                     Language1ComboBox.IsEnabled = true;
                     Language2ComboBox.IsEnabled = false;
                     Language2ComboBox.SelectedIndex = -1;
 
+                    //Set the equipment options and show them
                     equipmentList.Clear();
                     equipmentList.Add("Pack A", "A set of artisan’s tools\nA letter of introduction from your guild\nA set of traveler’s clothes\nA belt pouch containing 15 gp");
-
                     EquipmentComboBox.ItemsSource = equipmentList.Keys;
                     EquipmentComboBox.SelectedIndex = 0;
                     EquipmentTextBox.Text = equipmentList[EquipmentComboBox.SelectedIndex].ToString();
@@ -718,18 +767,20 @@ namespace D20CharCreator
                     break;
 
                 case "Hermit":
+                    //Set the proficiencies
                     Proficiency1TextBlock.Text = "Medicine";
                     Proficiency2TextBlock.Text = "Religion";
                     Proficiency3TextBlock.Text = "Herbalism kit";
                     Proficiency4TextBlock.Text = "";
 
+                    //Enable one language option
                     Language1ComboBox.IsEnabled = true;
                     Language2ComboBox.IsEnabled = false;
                     Language2ComboBox.SelectedIndex = -1;
 
+                    //Set the equipment options and show them
                     equipmentList.Clear();
                     equipmentList.Add("Pack A", "A scroll case stuffed full of notes from your studies/prayers\nA winter blanket\nA set of common clothes\nAn herbalism kit\n5 gp");
-
                     EquipmentComboBox.ItemsSource = equipmentList.Keys;
                     EquipmentComboBox.SelectedIndex = 0;
                     EquipmentTextBox.Text = equipmentList[EquipmentComboBox.SelectedIndex].ToString();
@@ -737,18 +788,20 @@ namespace D20CharCreator
                     break;
 
                 case "Noble":
+                    //Set the proficiencies
                     Proficiency1TextBlock.Text = "History";
                     Proficiency2TextBlock.Text = "Persuasion";
                     Proficiency3TextBlock.Text = "One type of gaming set";
                     Proficiency4TextBlock.Text = "";
 
+                    //Enable one language option
                     Language1ComboBox.IsEnabled = true;
                     Language2ComboBox.IsEnabled = false;
                     Language2ComboBox.SelectedIndex = -1;
 
+                    //Set the equipment options and show them
                     equipmentList.Clear();
                     equipmentList.Add("Pack A", "A set of fine clothes\nA signet ring\nA scroll of pedigree\nA purse containing 25 gp");
-
                     EquipmentComboBox.ItemsSource = equipmentList.Keys;
                     EquipmentComboBox.SelectedIndex = 0;
                     EquipmentTextBox.Text = equipmentList[EquipmentComboBox.SelectedIndex].ToString();
@@ -756,18 +809,20 @@ namespace D20CharCreator
                     break;
 
                 case "Outlander":
+                    //Set the proficiencies
                     Proficiency1TextBlock.Text = "Athletics";
                     Proficiency2TextBlock.Text = "Survival";
                     Proficiency3TextBlock.Text = "One type of musical instrument";
                     Proficiency4TextBlock.Text = "";
 
+                    //Enable one language option
                     Language1ComboBox.IsEnabled = true;
                     Language2ComboBox.IsEnabled = false;
                     Language2ComboBox.SelectedIndex = -1;
 
+                    //Set the equipment options and show them
                     equipmentList.Clear();
                     equipmentList.Add("Pack A", "A staff\nA hunting trap\nA trophy from an animal you killed\nA set of traveler’s clothes\nA belt pouch containing 10 g");
-
                     EquipmentComboBox.ItemsSource = equipmentList.Keys;
                     EquipmentComboBox.SelectedIndex = 0;
                     EquipmentTextBox.Text = equipmentList[EquipmentComboBox.SelectedIndex].ToString();
@@ -775,52 +830,61 @@ namespace D20CharCreator
                     break;
 
                 case "Sage":
+                    //Set the proficiencies
                     Proficiency1TextBlock.Text = "Arcana";
                     Proficiency2TextBlock.Text = "History";
                     Proficiency3TextBlock.Text = "";
                     Proficiency4TextBlock.Text = "";
 
+                    //Enable both language options
                     Language1ComboBox.IsEnabled = true;
                     Language2ComboBox.IsEnabled = true;
 
+                    //Set the equipment options and show them
                     equipmentList.Clear();
                     equipmentList.Add("Pack A", "A bottle of black ink\nA quill\nA small knife\nA letter from a dead colleague posing a question you have not yet been able to answer\nA set of common clothes\nA belt pouch containing 10 gp");
-
                     EquipmentComboBox.ItemsSource = equipmentList.Keys;
                     EquipmentComboBox.SelectedIndex = 0;
                     EquipmentTextBox.Text = equipmentList[EquipmentComboBox.SelectedIndex].ToString();
 
                     break;
+
                 case "Sailor":
+                    //Set the proficiencies
                     Proficiency1TextBlock.Text = "Athletics";
                     Proficiency2TextBlock.Text = "Perception";
                     Proficiency3TextBlock.Text = "Navigator’s tools";
                     Proficiency4TextBlock.Text = "Water Vehicles";
 
+                    //Disable language options
                     Language1ComboBox.IsEnabled = false;
                     Language2ComboBox.IsEnabled = false;
                     Language1ComboBox.SelectedIndex = -1;
                     Language2ComboBox.SelectedIndex = -1;
-
+                    
+                    //Set the equipment options and show them
                     equipmentList.Clear();
                     equipmentList.Add("Pack A", "A belaying pin (club)\n50 feet of silk rope\nA lucky charm \nA set of common clothes\nA belt pouch containing 10 gp");
-
                     EquipmentComboBox.ItemsSource = equipmentList.Keys;
                     EquipmentComboBox.SelectedIndex = 0;
                     EquipmentTextBox.Text = equipmentList[EquipmentComboBox.SelectedIndex].ToString();
 
                     break;
+
                 case "Soldier":
+                    //Set the proficiencies
                     Proficiency1TextBlock.Text = "Athletics";
                     Proficiency2TextBlock.Text = "Intimidation";
                     Proficiency3TextBlock.Text = "One type of gaming set";
                     Proficiency4TextBlock.Text = "Land Vehicles";
 
+                    //Disable language options
                     Language1ComboBox.IsEnabled = false;
                     Language2ComboBox.IsEnabled = false;
                     Language1ComboBox.SelectedIndex = -1;
                     Language2ComboBox.SelectedIndex = -1;
 
+                    //Set the equipment options and show them
                     equipmentList.Clear();
                     equipmentList.Add("Pack A", "An insignia of rank\nA trophy taken from a fallen enemy -- Dagger\nA set of bone dice\nA set of common clothes\nA belt pouch containing 10 gp");
                     equipmentList.Add("Pack B", "An insignia of rank\nA trophy taken from a fallen enemy -- Broken blade\nA set of bone dice\nA set of common clothes\nA belt pouch containing 10 gp");
@@ -828,26 +892,28 @@ namespace D20CharCreator
                     equipmentList.Add("Pack D", "An insignia of rank\nA trophy taken from a fallen enemy -- Dagger\nA deck of cards\nA set of common clothes\nA belt pouch containing 10 gp");
                     equipmentList.Add("Pack E", "An insignia of rank\nA trophy taken from a fallen enemy -- Broken blade\nA deck of cards\nA set of common clothes\nA belt pouch containing 10 gp");
                     equipmentList.Add("Pack F", "An insignia of rank\nA trophy taken from a fallen enemy -- Piece of a banner\nA deck of cards\nA set of common clothes\nA belt pouch containing 10 gp");
-
                     EquipmentComboBox.ItemsSource = equipmentList.Keys;
                     EquipmentComboBox.SelectedIndex = 0;
                     EquipmentTextBox.Text = equipmentList[EquipmentComboBox.SelectedIndex].ToString();
 
                     break;
+
                 case "Urchin":
+                    //Set the proficiencies
                     Proficiency1TextBlock.Text = "Sleight of Hand";
                     Proficiency2TextBlock.Text = "Stealth";
                     Proficiency3TextBlock.Text = "Disguise Kit";
                     Proficiency4TextBlock.Text = "Thieves' Tools";
 
+                    //Disable language options
                     Language1ComboBox.IsEnabled = false;
                     Language2ComboBox.IsEnabled = false;
                     Language1ComboBox.SelectedIndex = -1;
                     Language2ComboBox.SelectedIndex = -1;
 
+                    //Set the equipment options and show them
                     equipmentList.Clear();
                     equipmentList.Add("Pack A", "A small knife\nA map of the city you grew up in\nA pet mouse\nA token to remember your parents by\nA set of common clothes\nA belt pouch containing 10 gp");
-
                     EquipmentComboBox.ItemsSource = equipmentList.Keys;
                     EquipmentComboBox.SelectedIndex = 0;
                     EquipmentTextBox.Text = equipmentList[EquipmentComboBox.SelectedIndex].ToString();
@@ -856,25 +922,38 @@ namespace D20CharCreator
             }
         }
 
+        /// <summary>
+        /// Handles when the player selects something in the equipment combo box.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="SelectionChangedEventArgs"/> instance containing the event data.</param>
         private void EquipmentComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            ListBoxItem item = BackgroundListBox.SelectedValue as ListBoxItem;
-            EquipmentTextBox.Text = equipmentList[EquipmentComboBox.SelectedIndex].ToString();
+            //If there was a selection, update the text box
+            if(EquipmentComboBox.SelectedIndex >= 0)
+                EquipmentTextBox.Text = equipmentList[EquipmentComboBox.SelectedIndex].ToString();
         }
 
+        /// <summary>
+        /// Handles when the player hits the reroll button.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="RoutedEventArgs"/> instance containing the event data.</param>
         private void RollButton_Click(object sender, RoutedEventArgs e)
         {
+            //If the player has rerolls remaining
             if(rollsLeft > 0)
             {
+                //Reroll and decrement the number of rerolls remaining
                 Randomize();
                 rollsLeft--;
                 RollsTextBlock.Text = "Rolls: " + rollsLeft;
 
+                //Update the appropriate characteristic text boxes
                 string[] personalityListing = (string[])personalityTraitsList[BackgroundListBox.SelectedIndex];
                 string[] idealListing = (string[])idealTraitsList[BackgroundListBox.SelectedIndex];
                 string[] bondListing = (string[])bondTraitsList[BackgroundListBox.SelectedIndex];
                 string[] flawListing = (string[])flawTraitsList[BackgroundListBox.SelectedIndex];
-
                 PersonalityTextBox.Text = personalityListing[characteristicsSave[BackgroundListBox.SelectedIndex, 0]];
                 IdealTextBox.Text = idealListing[characteristicsSave[BackgroundListBox.SelectedIndex, 1]];
                 BondTextBox.Text = bondListing[characteristicsSave[BackgroundListBox.SelectedIndex, 2]];

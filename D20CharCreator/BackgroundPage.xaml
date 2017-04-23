@@ -52,7 +52,7 @@
                 <StackPanel VerticalAlignment="Top" Margin="0,10,0,0">
                     <TextBlock x:Name="LanguagesTextBlock" TextWrapping="Wrap" HorizontalAlignment="Center" FontSize="26.667" Text="Additional Languages"/>
                     <Separator Margin="0" Height="20" Foreground="{x:Null}" BorderThickness="0" Background="#FF720000" VerticalAlignment="Top"/>
-                    <ComboBox x:Name="Language1ComboBox" Padding="6,3,5,3" FontSize="18.667" Width="300">
+                    <ComboBox x:Name="Language1ComboBox" Padding="6,3,5,3" FontSize="18.667" Width="300" IsEnabled="False">
                         <ComboBoxItem Content="Abyssal"/>
                         <ComboBoxItem Content="Aquan"/>
                         <ComboBoxItem Content="Auran"/>
@@ -77,7 +77,7 @@
                         <ComboBoxItem Content="Undercommon"/>
                     </ComboBox>
                     <Separator Margin="0" VerticalAlignment="Top" Height="20" Foreground="{x:Null}" BorderThickness="0" Background="{x:Null}"/>
-                    <ComboBox x:Name="Language2ComboBox" Padding="6,3,5,3" FontSize="18.667" Width="300">
+                    <ComboBox x:Name="Language2ComboBox" Padding="6,3,5,3" FontSize="18.667" Width="300" IsEnabled="False">
                         <ComboBoxItem Content="Abyssal"/>
                         <ComboBoxItem Content="Aquan"/>
                         <ComboBoxItem Content="Auran"/>
@@ -108,7 +108,7 @@
                     <TextBlock x:Name="EquipmentTextBlock" TextWrapping="Wrap" HorizontalAlignment="Center" FontSize="26.667" Text="Equipment"/>
                     <Separator Margin="0" Height="20" Foreground="{x:Null}" BorderThickness="0" Background="#FF720000" VerticalAlignment="Top"/>
                     <ComboBox x:Name="EquipmentComboBox" Margin="20,0" SelectionChanged="EquipmentComboBox_SelectionChanged" IsReadOnly="True" IsEnabled="False"/>
-                    <TextBox x:Name="EquipmentTextBox" TextWrapping="Wrap" FontSize="13.333" IsReadOnly="True" Margin="20,0" Height="330"/>
+                    <TextBox x:Name="EquipmentTextBox" TextWrapping="Wrap" FontSize="13.333" IsReadOnly="True" Margin="20,0" Height="330" BorderThickness="0"/>
                 </StackPanel>
             </TabItem>
             <TabItem Header="Characteristics" FontFamily="Palatino Linotype">
@@ -116,13 +116,13 @@
                     <TextBlock x:Name="EquipmentTextBlock1" TextWrapping="Wrap" HorizontalAlignment="Center" FontSize="26.667" Text="Characteristics"/>
                     <Separator Margin="0" Height="20" Foreground="{x:Null}" BorderThickness="0" Background="#FF720000" VerticalAlignment="Top"/>
                     <TextBlock x:Name="PersonalityTextBlock" TextWrapping="Wrap" FontSize="21.333" TextAlignment="Center" Text="Personality"/>
-                    <TextBox x:Name="PersonalityTextBox" TextWrapping="Wrap" Height="50" IsReadOnly="True"/>
+                    <TextBox x:Name="PersonalityTextBox" TextWrapping="Wrap" Height="50" IsReadOnly="True" BorderThickness="0"/>
                     <TextBlock x:Name="IdealTextBlock" TextWrapping="Wrap" Margin="0" FontSize="21.333" TextAlignment="Center" Text="Ideal"/>
-                    <TextBox x:Name="IdealTextBox" TextWrapping="Wrap" Height="50" IsReadOnly="True"/>
+                    <TextBox x:Name="IdealTextBox" TextWrapping="Wrap" Height="50" IsReadOnly="True" BorderThickness="0"/>
                     <TextBlock x:Name="BondTextBlock" TextWrapping="Wrap" Margin="0" FontSize="21.333" TextAlignment="Center" Text="Bond"/>
-                    <TextBox x:Name="BondTextBox" TextWrapping="Wrap" Height="50" IsReadOnly="True"/>
+                    <TextBox x:Name="BondTextBox" TextWrapping="Wrap" Height="50" IsReadOnly="True" BorderThickness="0"/>
                     <TextBlock x:Name="FlawTextBlock" TextWrapping="Wrap" Text="Flaw" Margin="0" FontSize="21.333" TextAlignment="Center"/>
-                    <TextBox x:Name="FlawTextBox" TextWrapping="Wrap" Height="50" IsReadOnly="True"/>
+                    <TextBox x:Name="FlawTextBox" TextWrapping="Wrap" Height="50" IsReadOnly="True" BorderThickness="0"/>
                     <Grid Height="57">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition/>
