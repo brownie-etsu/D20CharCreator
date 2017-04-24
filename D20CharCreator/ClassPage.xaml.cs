@@ -171,7 +171,7 @@ namespace D20CharCreator
             //Update hit point related text boxes
             HitDiceTextBox.Text = hitDiceList[ClassListBox.SelectedIndex].ToString();
             HitPoints1stLevelTextBox.Text = hitPoints1stLevelList[ClassListBox.SelectedIndex].ToString();
-            HitPointsHigherLevelTextBox.Text = hitPoints1stLevelList[ClassListBox.SelectedIndex].ToString();
+            HitPointsHigherLevelTextBox.Text = hitPointsHigherLevelList[ClassListBox.SelectedIndex].ToString();
 
             //Update proficiency related text boxes
             ArmorProficiencyTextBox.Text =  armorProficiencyList[ClassListBox.SelectedIndex].ToString();
@@ -188,6 +188,7 @@ namespace D20CharCreator
             //The skills list will be cleared, so enable the buttons
             AddButton.IsEnabled = true;
             RemoveButton.IsEnabled = true;
+            SkillsComboBox.IsEnabled = true;
             FeaturesTextBox.Text = featuresList[ClassListBox.SelectedIndex].ToString();
 
             //Take a look at the selected item
@@ -245,10 +246,6 @@ namespace D20CharCreator
                     equipmentList.Add("Pack R", "A warhammer\nChain mail\nA light crossbow and 20 bolts\nAn explorer's pack\nA shield and a holy symbol");
                     equipmentList.Add("Pack S", "A mace\nScale mail\nAny simple weapon\nAn explorer's pack\nA shield and a holy symbol");
                     equipmentList.Add("Pack T", "A warhammer\nScale mail\nAny simple weapon\nAn explorer's pack\nA shield and a holy symbol");
-                    equipmentList.Add("Pack U", "A mace\nLeather armor\nAny simple weapon\nAny simple weapon\nA shield and a holy symbol");
-                    equipmentList.Add("Pack V", "A warhammer\nLeather armor\nAny simple weapon\nAny simple weapon\nA shield and a holy symbol");
-                    equipmentList.Add("Pack W", "A mace\nChain mail\nAny simple weapon\nAny simple weapon\nA shield and a holy symbol");
-                    equipmentList.Add("Pack X", "A warhammer\nChain mail\nAny simple weapon\nAny simple weapon\nA shield and a holy symbol");
 
                     //Set the number of skills that a player can choose
                     numberOfSkills = 2;
