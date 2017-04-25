@@ -24,7 +24,7 @@ namespace D20CharCreator
         public bool isNewCharacter = true;
 
         //Number of rerolls remaining
-        public int rollsLeft = 3;
+        public int _rollsLeft;
 
         //List of equipment for equipment selection
         OrderedDictionary equipmentList = new OrderedDictionary();
@@ -36,24 +36,39 @@ namespace D20CharCreator
         Random rand = new Random();
 
         //Lists for each possible personality, ideal, bond, and flaw
-        OrderedDictionary personalityTraitsList = new OrderedDictionary();
-        OrderedDictionary idealTraitsList = new OrderedDictionary();
-        OrderedDictionary bondTraitsList = new OrderedDictionary();
-        OrderedDictionary flawTraitsList = new OrderedDictionary();
+        public OrderedDictionary personalityTraitsList = new OrderedDictionary();
+        public OrderedDictionary idealTraitsList = new OrderedDictionary();
+        public OrderedDictionary bondTraitsList = new OrderedDictionary();
+        public OrderedDictionary flawTraitsList = new OrderedDictionary();
 
         /// <summary>
         /// Default constructor
         /// </summary>
         public BackgroundPage()
         {
+            _rollsLeft = 3;
+
             InitializeComponent();
             InitializeCharacteristics();
         }
 
         public BackgroundPage(Character charToEdit)
         {
+            _rollsLeft = charToEdit.Background.Rerolls;
+
             InitializeComponent();
             InitializeCharacteristics();
+
+            // Set all background information
+            BackgroundListBox.SelectedIndex = (int)charToEdit.Background.Type;
+            Language1ComboBox.SelectedIndex = (int)charToEdit.Background.LangOne;
+            Language2ComboBox.SelectedIndex = (int)charToEdit.Background.LangTwo;
+            EquipmentComboBox.SelectedIndex = charToEdit.Background.Equipment;
+
+            PersonalityTextBox.Text = ((string[])personalityTraitsList[(int)charToEdit.Background.Type])[charToEdit.Background.Characteristics[0]];
+            IdealTextBox.Text = ((string[])idealTraitsList[(int)charToEdit.Background.Type])[charToEdit.Background.Characteristics[1]];
+            BondTextBox.Text = ((string[])bondTraitsList[(int)charToEdit.Background.Type])[charToEdit.Background.Characteristics[2]];
+            FlawTextBox.Text = ((string[])flawTraitsList[(int)charToEdit.Background.Type])[charToEdit.Background.Characteristics[3]];
         }
 
         /// <summary>
@@ -87,7 +102,7 @@ namespace D20CharCreator
             PopulateFlawTraitsList();
 
             //Set the rolls left indicator
-            RollsTextBlock.Text = "Rolls: " + rollsLeft;
+            RollsTextBlock.Text = "Rolls: " + _rollsLeft;
         }
 
         /// <summary>
@@ -948,12 +963,12 @@ namespace D20CharCreator
         private void RollButton_Click(object sender, RoutedEventArgs e)
         {
             //If the player has rerolls remaining
-            if(rollsLeft > 0)
+            if(_rollsLeft > 0)
             {
                 //Reroll and decrement the number of rerolls remaining
                 Randomize();
-                rollsLeft--;
-                RollsTextBlock.Text = "Rolls: " + rollsLeft;
+                _rollsLeft--;
+                RollsTextBlock.Text = "Rolls: " + _rollsLeft;
 
                 //Update the appropriate characteristic text boxes
                 string[] personalityListing = (string[])personalityTraitsList[BackgroundListBox.SelectedIndex];

@@ -46,7 +46,18 @@ namespace D20CharCreator
         private void AddCharacterButton_Click(object sender, RoutedEventArgs e)
         {
             Hide();
-            CharacterCreatorWindow charCreatorWin = new CharacterCreatorWindow();
+
+            Character newCharacter = new Character();
+
+            int id = Database.CreateCharacter(newCharacter, _userId);
+            newCharacter.CharacterId = id;
+            newCharacter.Name = "Character " + id;
+
+            _characters.Add(newCharacter);
+            CharListTable.ItemsSource = null;
+            CharListTable.ItemsSource = _characters;
+
+            CharacterCreatorWindow charCreatorWin = new CharacterCreatorWindow(newCharacter);
             charCreatorWin.Owner = this;
             charCreatorWin.Show();
         }
@@ -65,7 +76,10 @@ namespace D20CharCreator
         public void EditCharacterButton_Click(object sender, RoutedEventArgs e)
         {
             Hide();
-            CharacterCreatorWindow charCreatorWin = new CharacterCreatorWindow();
+
+            Character charToEdit = ((FrameworkElement)sender).DataContext as Character;
+
+            CharacterCreatorWindow charCreatorWin = new CharacterCreatorWindow(charToEdit);
             charCreatorWin.Owner = this;
             charCreatorWin.Show();
         }

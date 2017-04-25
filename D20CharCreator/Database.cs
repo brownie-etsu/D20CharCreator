@@ -13,6 +13,51 @@ namespace D20CharCreator
     {
         private const string connectionString = "server=einstein.etsu.edu;uid=yoderna;pwd=12345;database=yoderna;";
 
+        public static void SaveCharacter(Character charToSave)
+        {
+            MySqlConnection conn = new MySqlConnection(connectionString);
+
+            conn.Open();
+
+            MySqlCommand cmd = new MySqlCommand("UPDATE dnd_characters " +
+                                                "SET lang_one = @lang_one, " +
+                                                "lang_two = @lang_two, " +
+                                                "bgEquipment = @bgEquipment, " +
+                                                "char_one = @char_one, " +
+                                                "char_two = @char_two, " +
+                                                "char_three = @char_three, " +
+                                                "char_four = @char_four, " +
+                                                "rerolls = @rerolls, " +
+                                                "class = @class, " +
+                                                "skill_one = @skill_one, " +
+                                                "skill_two = @skill_two, " +
+                                                "skill_three = @skill_three, " +
+                                                "skill_four = @skill_four, " +
+                                                "classEquipment = @classEquipment, " +
+                                                "background = @background " +
+                                                "WHERE character_id = @character_id",
+                                                conn);
+
+            cmd.Parameters.AddWithValue("@lang_one", (int)charToSave.Background.LangOne);
+            cmd.Parameters.AddWithValue("@lang_two", (int)charToSave.Background.LangTwo);
+            cmd.Parameters.AddWithValue("@bgEquipment", charToSave.Background.Equipment);
+            cmd.Parameters.AddWithValue("@char_one", charToSave.Background.Characteristics[0]);
+            cmd.Parameters.AddWithValue("@char_two", charToSave.Background.Characteristics[1]);
+            cmd.Parameters.AddWithValue("@char_three", charToSave.Background.Characteristics[2]);
+            cmd.Parameters.AddWithValue("@char_four", charToSave.Background.Characteristics[3]);
+            cmd.Parameters.AddWithValue("@rerolls", charToSave.Background.Rerolls);
+            cmd.Parameters.AddWithValue("@class", (int)charToSave.Class.Type);
+            cmd.Parameters.AddWithValue("@skill_one", charToSave.Class.Skills[0]);
+            cmd.Parameters.AddWithValue("@skill_two", charToSave.Class.Skills[1]);
+            cmd.Parameters.AddWithValue("@skill_three", charToSave.Class.Skills[2]);
+            cmd.Parameters.AddWithValue("@skill_four", charToSave.Class.Skills[3]);
+            cmd.Parameters.AddWithValue("@classEquipment", charToSave.Class.Equipment);
+            cmd.Parameters.AddWithValue("@background", (int)charToSave.Background.Type);
+            cmd.Parameters.AddWithValue("@character_id", charToSave.CharacterId);
+
+            cmd.ExecuteNonQuery();
+        }
+
         public static bool LogIn(string username, string password)
         {
             MySqlConnection conn = new MySqlConnection(connectionString);
@@ -116,7 +161,7 @@ namespace D20CharCreator
             for (int i = 0; i < characters.Length; i++)
             {
                 reader.Read();
-                object[] charData = new object[16];
+                object[] charData = new object[17];
                 reader.GetValues(charData);
 
                 characters[i] = new Character();
@@ -125,10 +170,12 @@ namespace D20CharCreator
 
                 characters[i].CharacterId = (int)charData[0];
 
+                characters[i].Background.Type = (BackgroundType)charData[16];
+
                 characters[i].Background.LangOne = (Language)charData[2];
                 characters[i].Background.LangTwo = (Language)charData[3];
 
-                characters[i].Background.Equipment = (string)charData[4];
+                characters[i].Background.Equipment = (int)charData[4];
 
                 characters[i].Background.Characteristics = new int[4];
                 for (int j = 0; j < 4; j++)
@@ -146,22 +193,45 @@ namespace D20CharCreator
                     characters[i].Class.Skills[j] = (int)charData[11 + j];
                 }
 
-                characters[i].Class.Equipment = (string)charData[15];
+                characters[i].Class.Equipment = (int)charData[15];
 
-                characters[i].Name = "Character " + (i + 1);
+                characters[i].Name = "Character " + (int)charData[0];
             }
 
             return characters;
         }
 
-        public static void SaveCharacter(Character toSave)
+        public static int CreateCharacter(Character toCreate, int userId)
         {
+            MySqlConnection conn = new MySqlConnection(connectionString);
 
-        }
+            conn.Open();
 
-        public static void CreateCharacter(Character toCreate)
-        {
+            MySqlCommand cmd = new MySqlCommand("INSERT INTO dnd_characters(user_id, lang_one, lang_two, bgEquipment, char_one, char_two, char_three, char_four, rerolls, class, skill_one, skill_two, skill_three, skill_four, classEquipment, background) " +
+                                                "VALUES(@userId, @lang_one, @lang_two, @bgEquipment, @char_one, @char_two, @char_three, @char_four, @rerolls, @class, @skill_one, @skill_two, @skill_three, @skill_four, @classEquipment, @background)", conn);
 
+            cmd.Parameters.AddWithValue("@userId", userId);
+            cmd.Parameters.AddWithValue("@lang_one", toCreate.Background.LangOne);
+            cmd.Parameters.AddWithValue("@lang_two", toCreate.Background.LangTwo);
+            cmd.Parameters.AddWithValue("@bgEquipment", toCreate.Background.Equipment);
+            cmd.Parameters.AddWithValue("@char_one", toCreate.Background.Characteristics[0]);
+            cmd.Parameters.AddWithValue("@char_two", toCreate.Background.Characteristics[1]);
+            cmd.Parameters.AddWithValue("@char_three", toCreate.Background.Characteristics[2]);
+            cmd.Parameters.AddWithValue("@char_four", toCreate.Background.Characteristics[3]);
+            cmd.Parameters.AddWithValue("@rerolls", toCreate.Background.Rerolls);
+            cmd.Parameters.AddWithValue("@class", (int)toCreate.Class.Type);
+            cmd.Parameters.AddWithValue("@skill_one", toCreate.Class.Skills[0]);
+            cmd.Parameters.AddWithValue("@skill_two", toCreate.Class.Skills[1]);
+            cmd.Parameters.AddWithValue("@skill_three", toCreate.Class.Skills[2]);
+            cmd.Parameters.AddWithValue("@skill_four", toCreate.Class.Skills[3]);
+            cmd.Parameters.AddWithValue("@classEquipment", toCreate.Class.Equipment);
+            cmd.Parameters.AddWithValue("@background", (int)toCreate.Background.Type);
+
+            cmd.ExecuteNonQuery();
+
+            //cmd = new MySqlCommand("SELECT LAST_INSERT_ID()", conn);
+
+            return unchecked((int)cmd.LastInsertedId);
         }
 
         public static void DeleteCharacter(Character toDelete)
@@ -201,5 +271,7 @@ namespace D20CharCreator
 
             return rfc.GetBytes(20);
         }
+
+
     }
 }

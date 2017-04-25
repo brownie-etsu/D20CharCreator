@@ -14,15 +14,10 @@ namespace D20CharCreator
 
         public Language LangTwo { get; set; }
 
-        public string Equipment { get; set; }
+        public int Equipment { get; set; }
 
         public int[] Characteristics { get; set; }
 
         public int Rerolls { get; set; }
-
-        public CharacterBackground()
-        {
-
-        }
     }
 }

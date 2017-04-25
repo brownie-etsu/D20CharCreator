@@ -52,6 +52,20 @@ namespace D20CharCreator
             PopulateFeaturesList();
         }
 
+        public ClassPage(Character charToEdit)
+        {
+            InitializeComponent();
+            InitializeHitPoints();
+            InitializeProficiencies();
+            PopulateFeaturesList();
+
+            ClassListBox.SelectedIndex = (int)charToEdit.Class.Type;
+
+            AddSkills(charToEdit.Class.Skills);
+
+            EquipmentComboBox.SelectedIndex = charToEdit.Class.Equipment;
+        }
+
         /// <summary>
         /// Initializes the hit point lists.
         /// </summary>
@@ -381,6 +395,33 @@ namespace D20CharCreator
                 if (SkillsListBox.Items.Count == numberOfSkills)
                     AddButton.IsEnabled = false;
             }
+        }
+
+        private void AddSkills(params int[] skills)
+        {
+            List<string> combo = SkillsComboBox.ItemsSource as List<string>;
+            List<string> list = SkillsListBox.ItemsSource as List<string>;
+
+            foreach (int i in skills)
+            {
+                list.Add(combo[i]);
+            }
+
+            for (int i = 0; i < skills.Length; i++)
+            {
+                combo.RemoveAt(skills[i]);
+
+                for (int j = i + 1; j < skills.Length; j++)
+                {
+                    if (skills[j] > j)
+                    {
+                        skills[j]--;
+                    }
+                }
+            }
+
+            if (SkillsListBox.Items.Count >= numberOfSkills)
+                AddButton.IsEnabled = false;
         }
 
         /// <summary>

@@ -12,6 +12,6 @@ namespace D20CharCreator
 
         public int[] Skills { get; set; }
 
-        public string Equipment { get; set; }
+        public int Equipment { get; set; }
     }
 }
