@@ -28,7 +28,20 @@ namespace D20CharCreator
             LoadPages();
         }
 
+        public CharacterCreatorWindow(Character charToEdit)
+        {
+            InitializeComponent();
+            LoadPages(charToEdit);
+        }
+
         private void LoadPages()
+        {
+            backgroundPage = new BackgroundPage();
+            classPage = new ClassPage();
+            frame.Navigate(backgroundPage);
+        }
+
+        private void LoadPages(Character charToEdit)
         {
             backgroundPage = new BackgroundPage();
             classPage = new ClassPage();

@@ -90,8 +90,10 @@
     <Compile Include="BackgroundPage.xaml.cs">
       <DependentUpon>BackgroundPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="BackgroundType.cs" />
     <Compile Include="Character.cs" />
     <Compile Include="CharacterBackground.cs" />
+    <Compile Include="CharacterClass.cs" />
     <Compile Include="CharacterCreatorWindow.xaml.cs">
       <DependentUpon>CharacterCreatorWindow.xaml</DependentUpon>
     </Compile>

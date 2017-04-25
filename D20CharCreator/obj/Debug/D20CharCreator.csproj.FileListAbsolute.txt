@@ -79,3 +79,4 @@ C:\Users\Elliot\Documents\GitHub\D20CharCreator\D20CharCreator\obj\Debug\LoginWi
 C:\Users\Elliot\Documents\GitHub\D20CharCreator\D20CharCreator\obj\Debug\D20CharCreator.g.resources
 C:\Users\Elliot\Documents\GitHub\D20CharCreator\D20CharCreator\obj\Debug\D20CharCreator.Properties.Resources.resources
 C:\Users\Elliot\Documents\GitHub\D20CharCreator\D20CharCreator\obj\Debug\D20CharCreator.csproj.GenerateResource.Cache
+C:\Users\yoderna\Downloads\D20CharCreator-master\D20CharCreator\obj\Debug\D20CharCreator.csprojResolveAssemblyReference.cache

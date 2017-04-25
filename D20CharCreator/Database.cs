@@ -38,6 +38,45 @@ namespace D20CharCreator
             return Hash(password, salt).SequenceEqual(encryptedPassword);
         }
 
+        public static int GetUserId(string username)
+        {
+            MySqlConnection conn = new MySqlConnection(connectionString);
+
+            conn.Open();
+
+            MySqlCommand cmd = new MySqlCommand("select user_id from dnd_users where username = @username", conn);
+
+            cmd.Parameters.AddWithValue("@username", username);
+
+            return unchecked((int)cmd.ExecuteScalar());
+        }
+
+        public static bool UsernameExists(string username)
+        {
+            MySqlConnection conn = new MySqlConnection(connectionString);
+
+            conn.Open();
+
+            MySqlCommand cmd = new MySqlCommand("select count(*) from dnd_users where username = @username", conn);
+
+            cmd.Parameters.AddWithValue("@username", username);
+
+            return (long)cmd.ExecuteScalar() == 1;
+        }
+
+        public static bool EmailExists(string email)
+        {
+            MySqlConnection conn = new MySqlConnection(connectionString);
+
+            conn.Open();
+
+            MySqlCommand cmd = new MySqlCommand("select count(*) from dnd_users where email = @email", conn);
+
+            cmd.Parameters.AddWithValue("@email", email);
+
+            return (long)cmd.ExecuteScalar() == 1;
+        }
+
         public static bool SignUp(string username, string firstName, string lastName, string email, string password)
         {
             MySqlConnection conn = new MySqlConnection(connectionString);
@@ -77,18 +116,65 @@ namespace D20CharCreator
             for (int i = 0; i < characters.Length; i++)
             {
                 reader.Read();
-                object[] charData = new object[7];
+                object[] charData = new object[16];
                 reader.GetValues(charData);
 
                 characters[i] = new Character();
+                characters[i].Class = new CharacterClass();
+                characters[i].Background = new CharacterBackground();
 
-                characters[i].Statistic = (int)charData[2];
-                characters[i].Level = (int)charData[3];
-                characters[i].Name = (string)charData[4];
-                characters[i].Class = (ClassType)charData[5];
+                characters[i].CharacterId = (int)charData[0];
+
+                characters[i].Background.LangOne = (Language)charData[2];
+                characters[i].Background.LangTwo = (Language)charData[3];
+
+                characters[i].Background.Equipment = (string)charData[4];
+
+                characters[i].Background.Characteristics = new int[4];
+                for (int j = 0; j < 4; j++)
+                {
+                    characters[i].Background.Characteristics[j] = (int)charData[5 + j];
+                }
+
+                characters[i].Background.Rerolls = (int)charData[9];
+
+                characters[i].Class.Type = (ClassType)charData[10];
+
+                characters[i].Class.Skills = new int[4];
+                for (int j = 0; j < 4; j++)
+                {
+                    characters[i].Class.Skills[j] = (int)charData[11 + j];
+                }
+
+                characters[i].Class.Equipment = (string)charData[15];
+
+                characters[i].Name = "Character " + (i + 1);
             }
 
             return characters;
+        }
+
+        public static void SaveCharacter(Character toSave)
+        {
+
+        }
+
+        public static void CreateCharacter(Character toCreate)
+        {
+
+        }
+
+        public static void DeleteCharacter(Character toDelete)
+        {
+            MySqlConnection conn = new MySqlConnection(connectionString);
+
+            conn.Open();
+
+            MySqlCommand cmd = new MySqlCommand("delete from dnd_characters where character_id = @id", conn);
+
+            cmd.Parameters.AddWithValue("@id", toDelete.CharacterId);
+
+            cmd.ExecuteNonQuery();
         }
 
         /// <summary>

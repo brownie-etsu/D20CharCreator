@@ -38,6 +38,22 @@ namespace D20CharCreator
 
             if(IsValidInput())
             {
+                if (Database.UsernameExists(UsernameInputBox.Text))
+                {
+                    MessageBox.Show("\"" + UsernameInputBox.Text + "\" is already taken.", "Account Failed", MessageBoxButton.OK, MessageBoxImage.Error);
+                    UsernameInputBox.Clear();
+                    Show();
+                    return;
+                }
+
+                if (Database.EmailExists(EmailInputBox.Text))
+                {
+                    MessageBox.Show("\"" + EmailInputBox.Text + "\" is already taken.", "Account Failed", MessageBoxButton.OK, MessageBoxImage.Error);
+                    UsernameInputBox.Clear();
+                    Show();
+                    return;
+                }
+
                 bool created = Database.SignUp(UsernameInputBox.Text, FirstNameInputBox.Text, LastNameInputBox.Text, EmailInputBox.Text, PasswordInputBox1.Password);
 
                 if (created)
@@ -47,8 +63,7 @@ namespace D20CharCreator
                 }
                 else
                 {
-                    MessageBox.Show("\"" + UsernameInputBox.Text + "\" is already taken.", "Account Failed", MessageBoxButton.OK, MessageBoxImage.Error);
-                    UsernameInputBox.Clear();
+                    MessageBox.Show("wtf. an unknown error has occurred.");
                     Show();
                 }
             }

@@ -50,6 +50,12 @@ namespace D20CharCreator
             InitializeCharacteristics();
         }
 
+        public BackgroundPage(Character charToEdit)
+        {
+            InitializeComponent();
+            InitializeCharacteristics();
+        }
+
         /// <summary>
         /// Roll/rerolls characteristics.
         /// </summary>
