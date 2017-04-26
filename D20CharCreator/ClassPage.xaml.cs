@@ -38,8 +38,16 @@ namespace D20CharCreator
         //List for holding feature related data
         OrderedDictionary featuresList = new OrderedDictionary();
 
+        public string[][] _classSkills = new string[4][]
+        {
+            new string[] { "Animal Handling", "Athletics", "Intimidation", "Nature", "Perception", "Survival" },
+            new string[] { "History", "Insight", "Medicine", "Persuasion", "Religion" },
+            new string[] { "Acrobatics", "Athletics", "Deception", "Insight", "Intimidation", "Investigation", "Perception", "Performance", "Persuasion", "Sleight of Hand", "Stealth" },
+            new string[] { "Arcana", "History", "Insight", "Investigation", "Medicine", "Religion" }
+        };
+
         //Int for holding the number of skills that a class can have
-        int numberOfSkills;
+        private int numberOfSkills;
 
         /// <summary>
         /// Default constructor
@@ -50,6 +58,40 @@ namespace D20CharCreator
             InitializeHitPoints();
             InitializeProficiencies();
             PopulateFeaturesList();
+        }
+
+        public ClassPage(Character charToEdit)
+        {
+            InitializeComponent();
+            InitializeHitPoints();
+            InitializeProficiencies();
+            PopulateFeaturesList();
+
+            ClassListBox.SelectedIndex = (int)charToEdit.Class.Type;
+
+            EquipmentComboBox.SelectedIndex = charToEdit.Class.Equipment;
+
+            // Populate the combo box with all class skills
+            List<string> comboBoxSkills = SkillsComboBox.ItemsSource as List<string>;
+            comboBoxSkills = new List<string>(_classSkills[(int)charToEdit.Class.Type]);
+
+            List<string> listBoxSkills = SkillsListBox.ItemsSource as List<string>;
+            listBoxSkills = new List<string>();
+
+            foreach (int i in charToEdit.Class.Skills)
+            {
+                if (i >= 0)
+                {
+                    listBoxSkills.Add(_classSkills[(int)charToEdit.Class.Type][i]);
+                    comboBoxSkills.Remove(_classSkills[(int)charToEdit.Class.Type][i]);
+                }
+            }
+
+            SkillsComboBox.ItemsSource = comboBoxSkills;
+            SkillsListBox.ItemsSource = listBoxSkills;
+
+            if (SkillsListBox.Items.Count >= numberOfSkills)
+                AddButton.IsEnabled = false;
         }
 
         /// <summary>
@@ -381,6 +423,33 @@ namespace D20CharCreator
                 if (SkillsListBox.Items.Count == numberOfSkills)
                     AddButton.IsEnabled = false;
             }
+        }
+
+        private void AddSkills(params int[] skills)
+        {
+            List<string> combo = SkillsComboBox.ItemsSource as List<string>;
+            List<string> list = SkillsListBox.ItemsSource as List<string>;
+
+            foreach (int i in skills)
+            {
+                list.Add(combo[i]);
+            }
+
+            for (int i = 0; i < skills.Length; i++)
+            {
+                combo.RemoveAt(skills[i]);
+
+                for (int j = i + 1; j < skills.Length; j++)
+                {
+                    if (skills[j] > j)
+                    {
+                        skills[j]--;
+                    }
+                }
+            }
+
+            if (SkillsListBox.Items.Count >= numberOfSkills)
+                AddButton.IsEnabled = false;
         }
 
         /// <summary>

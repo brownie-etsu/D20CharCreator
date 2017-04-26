@@ -63,6 +63,46 @@ namespace D20CharCreator.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap CharacterProfileBarbarian {
+            get {
+                object obj = ResourceManager.GetObject("CharacterProfileBarbarian", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap CharacterProfileCleric {
+            get {
+                object obj = ResourceManager.GetObject("CharacterProfileCleric", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap CharacterProfileRogue {
+            get {
+                object obj = ResourceManager.GetObject("CharacterProfileRogue", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap CharacterProfileWizard {
+            get {
+                object obj = ResourceManager.GetObject("CharacterProfileWizard", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap d20 {
             get {
                 object obj = ResourceManager.GetObject("d20", resourceCulture);
