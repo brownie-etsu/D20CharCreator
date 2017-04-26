@@ -79,3 +79,85 @@ C:\Users\Elliot\Documents\GitHub\D20CharCreator\D20CharCreator\obj\Debug\LoginWi
 C:\Users\Elliot\Documents\GitHub\D20CharCreator\D20CharCreator\obj\Debug\D20CharCreator.g.resources
 C:\Users\Elliot\Documents\GitHub\D20CharCreator\D20CharCreator\obj\Debug\D20CharCreator.Properties.Resources.resources
 C:\Users\Elliot\Documents\GitHub\D20CharCreator\D20CharCreator\obj\Debug\D20CharCreator.csproj.GenerateResource.Cache
+C:\Users\yoderna\Downloads\D20CharCreator-master\D20CharCreator\obj\Debug\D20CharCreator.csprojResolveAssemblyReference.cache
+C:\Users\Nick\Downloads\D20CharCreator-DoNotMergeYet\D20CharCreator\bin\Debug\D20CharCreator.exe.config
+C:\Users\Nick\Downloads\D20CharCreator-DoNotMergeYet\D20CharCreator\obj\Debug\D20CharCreator.exe
+C:\Users\Nick\Downloads\D20CharCreator-DoNotMergeYet\D20CharCreator\obj\Debug\D20CharCreator.pdb
+C:\Users\Nick\Downloads\D20CharCreator-DoNotMergeYet\D20CharCreator\bin\Debug\D20CharCreator.exe
+C:\Users\Nick\Downloads\D20CharCreator-DoNotMergeYet\D20CharCreator\bin\Debug\MySql.Data.dll
+C:\Users\Nick\Downloads\D20CharCreator-DoNotMergeYet\D20CharCreator\obj\Debug\D20CharCreator.csprojResolveAssemblyReference.cache
+C:\Users\Nick\Downloads\D20CharCreator-DoNotMergeYet\D20CharCreator\obj\Debug\BackgroundPage.g.cs
+C:\Users\Nick\Downloads\D20CharCreator-DoNotMergeYet\D20CharCreator\obj\Debug\CharacterCreatorWindow.g.cs
+C:\Users\Nick\Downloads\D20CharCreator-DoNotMergeYet\D20CharCreator\obj\Debug\CharacterListWindow.g.cs
+C:\Users\Nick\Downloads\D20CharCreator-DoNotMergeYet\D20CharCreator\obj\Debug\ClassPage.g.cs
+C:\Users\Nick\Downloads\D20CharCreator-DoNotMergeYet\D20CharCreator\obj\Debug\CreateAccountWindow.g.cs
+C:\Users\Nick\Downloads\D20CharCreator-DoNotMergeYet\D20CharCreator\obj\Debug\LoginWindow.g.cs
+C:\Users\Nick\Downloads\D20CharCreator-DoNotMergeYet\D20CharCreator\obj\Debug\App.g.cs
+C:\Users\Nick\Downloads\D20CharCreator-DoNotMergeYet\D20CharCreator\obj\Debug\D20CharCreator_Content.g.cs
+C:\Users\Nick\Downloads\D20CharCreator-DoNotMergeYet\D20CharCreator\obj\Debug\D20CharCreator_MarkupCompile.cache
+C:\Users\Nick\Downloads\D20CharCreator-DoNotMergeYet\D20CharCreator\obj\Debug\D20CharCreator_MarkupCompile.lref
+C:\Users\Nick\Downloads\D20CharCreator-DoNotMergeYet\D20CharCreator\obj\Debug\BackgroundPage.baml
+C:\Users\Nick\Downloads\D20CharCreator-DoNotMergeYet\D20CharCreator\obj\Debug\CharacterCreatorWindow.baml
+C:\Users\Nick\Downloads\D20CharCreator-DoNotMergeYet\D20CharCreator\obj\Debug\CharacterListWindow.baml
+C:\Users\Nick\Downloads\D20CharCreator-DoNotMergeYet\D20CharCreator\obj\Debug\ClassPage.baml
+C:\Users\Nick\Downloads\D20CharCreator-DoNotMergeYet\D20CharCreator\obj\Debug\CreateAccountWindow.baml
+C:\Users\Nick\Downloads\D20CharCreator-DoNotMergeYet\D20CharCreator\obj\Debug\LoginWindow.baml
+C:\Users\Nick\Downloads\D20CharCreator-DoNotMergeYet\D20CharCreator\obj\Debug\D20CharCreator.g.resources
+C:\Users\Nick\Downloads\D20CharCreator-DoNotMergeYet\D20CharCreator\obj\Debug\D20CharCreator.Properties.Resources.resources
+C:\Users\Nick\Downloads\D20CharCreator-DoNotMergeYet\D20CharCreator\obj\Debug\D20CharCreator.csproj.GenerateResource.Cache
+C:\Users\Nick\Downloads\D20CharCreator-DoNotMergeYet\D20CharCreator\bin\Debug\D20CharCreator.pdb
+C:\Users\yoderna\Downloads\blah\D20CharCreator\bin\Debug\D20CharCreator.exe.config
+C:\Users\yoderna\Downloads\blah\D20CharCreator\obj\Debug\D20CharCreator.exe
+C:\Users\yoderna\Downloads\blah\D20CharCreator\obj\Debug\D20CharCreator.pdb
+C:\Users\yoderna\Downloads\blah\D20CharCreator\bin\Debug\D20CharCreator.exe
+C:\Users\yoderna\Downloads\blah\D20CharCreator\bin\Debug\D20CharCreator.pdb
+C:\Users\yoderna\Downloads\blah\D20CharCreator\bin\Debug\MySql.Data.dll
+C:\Users\yoderna\Downloads\blah\D20CharCreator\obj\Debug\D20CharCreator.csprojResolveAssemblyReference.cache
+C:\Users\yoderna\Downloads\blah\D20CharCreator\obj\Debug\BackgroundPage.g.cs
+C:\Users\yoderna\Downloads\blah\D20CharCreator\obj\Debug\CharacterCreatorWindow.g.cs
+C:\Users\yoderna\Downloads\blah\D20CharCreator\obj\Debug\CharacterListWindow.g.cs
+C:\Users\yoderna\Downloads\blah\D20CharCreator\obj\Debug\ClassPage.g.cs
+C:\Users\yoderna\Downloads\blah\D20CharCreator\obj\Debug\CreateAccountWindow.g.cs
+C:\Users\yoderna\Downloads\blah\D20CharCreator\obj\Debug\LoginWindow.g.cs
+C:\Users\yoderna\Downloads\blah\D20CharCreator\obj\Debug\App.g.cs
+C:\Users\yoderna\Downloads\blah\D20CharCreator\obj\Debug\D20CharCreator_Content.g.cs
+C:\Users\yoderna\Downloads\blah\D20CharCreator\obj\Debug\D20CharCreator_MarkupCompile.cache
+C:\Users\yoderna\Downloads\blah\D20CharCreator\obj\Debug\D20CharCreator_MarkupCompile.lref
+C:\Users\yoderna\Downloads\blah\D20CharCreator\obj\Debug\BackgroundPage.baml
+C:\Users\yoderna\Downloads\blah\D20CharCreator\obj\Debug\CharacterCreatorWindow.baml
+C:\Users\yoderna\Downloads\blah\D20CharCreator\obj\Debug\CharacterListWindow.baml
+C:\Users\yoderna\Downloads\blah\D20CharCreator\obj\Debug\ClassPage.baml
+C:\Users\yoderna\Downloads\blah\D20CharCreator\obj\Debug\CreateAccountWindow.baml
+C:\Users\yoderna\Downloads\blah\D20CharCreator\obj\Debug\LoginWindow.baml
+C:\Users\yoderna\Downloads\blah\D20CharCreator\obj\Debug\D20CharCreator.g.resources
+C:\Users\yoderna\Downloads\blah\D20CharCreator\obj\Debug\D20CharCreator.Properties.Resources.resources
+C:\Users\yoderna\Downloads\blah\D20CharCreator\obj\Debug\D20CharCreator.csproj.GenerateResource.Cache
+G:\Spring 2017\DND_Latest\D20CharCreator\bin\Debug\D20CharCreator.exe.config
+G:\Spring 2017\DND_Latest\D20CharCreator\obj\Debug\D20CharCreator.exe
+G:\Spring 2017\DND_Latest\D20CharCreator\obj\Debug\D20CharCreator.pdb
+C:\Users\Nick\Downloads\Super Latest\DND_Latest\D20CharCreator\bin\Debug\D20CharCreator.exe.config
+C:\Users\Nick\Downloads\Super Latest\DND_Latest\D20CharCreator\obj\Debug\D20CharCreator.exe
+C:\Users\Nick\Downloads\Super Latest\DND_Latest\D20CharCreator\obj\Debug\D20CharCreator.pdb
+C:\Users\Nick\Downloads\Super Latest\DND_Latest\D20CharCreator\bin\Debug\D20CharCreator.exe
+C:\Users\Nick\Downloads\Super Latest\DND_Latest\D20CharCreator\bin\Debug\D20CharCreator.pdb
+C:\Users\Nick\Downloads\Super Latest\DND_Latest\D20CharCreator\bin\Debug\MySql.Data.dll
+C:\Users\Nick\Downloads\Super Latest\DND_Latest\D20CharCreator\obj\Debug\D20CharCreator.csprojResolveAssemblyReference.cache
+C:\Users\Nick\Downloads\Super Latest\DND_Latest\D20CharCreator\obj\Debug\BackgroundPage.g.cs
+C:\Users\Nick\Downloads\Super Latest\DND_Latest\D20CharCreator\obj\Debug\CharacterCreatorWindow.g.cs
+C:\Users\Nick\Downloads\Super Latest\DND_Latest\D20CharCreator\obj\Debug\CharacterListWindow.g.cs
+C:\Users\Nick\Downloads\Super Latest\DND_Latest\D20CharCreator\obj\Debug\ClassPage.g.cs
+C:\Users\Nick\Downloads\Super Latest\DND_Latest\D20CharCreator\obj\Debug\CreateAccountWindow.g.cs
+C:\Users\Nick\Downloads\Super Latest\DND_Latest\D20CharCreator\obj\Debug\LoginWindow.g.cs
+C:\Users\Nick\Downloads\Super Latest\DND_Latest\D20CharCreator\obj\Debug\App.g.cs
+C:\Users\Nick\Downloads\Super Latest\DND_Latest\D20CharCreator\obj\Debug\D20CharCreator_Content.g.cs
+C:\Users\Nick\Downloads\Super Latest\DND_Latest\D20CharCreator\obj\Debug\D20CharCreator_MarkupCompile.cache
+C:\Users\Nick\Downloads\Super Latest\DND_Latest\D20CharCreator\obj\Debug\D20CharCreator_MarkupCompile.lref
+C:\Users\Nick\Downloads\Super Latest\DND_Latest\D20CharCreator\obj\Debug\BackgroundPage.baml
+C:\Users\Nick\Downloads\Super Latest\DND_Latest\D20CharCreator\obj\Debug\CharacterCreatorWindow.baml
+C:\Users\Nick\Downloads\Super Latest\DND_Latest\D20CharCreator\obj\Debug\CharacterListWindow.baml
+C:\Users\Nick\Downloads\Super Latest\DND_Latest\D20CharCreator\obj\Debug\ClassPage.baml
+C:\Users\Nick\Downloads\Super Latest\DND_Latest\D20CharCreator\obj\Debug\CreateAccountWindow.baml
+C:\Users\Nick\Downloads\Super Latest\DND_Latest\D20CharCreator\obj\Debug\LoginWindow.baml
+C:\Users\Nick\Downloads\Super Latest\DND_Latest\D20CharCreator\obj\Debug\D20CharCreator.g.resources
+C:\Users\Nick\Downloads\Super Latest\DND_Latest\D20CharCreator\obj\Debug\D20CharCreator.Properties.Resources.resources
+C:\Users\Nick\Downloads\Super Latest\DND_Latest\D20CharCreator\obj\Debug\D20CharCreator.csproj.GenerateResource.Cache
